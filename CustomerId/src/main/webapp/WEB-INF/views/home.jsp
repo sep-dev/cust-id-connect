@@ -5,8 +5,7 @@
 
 <html>
 <head>
-<meta http-equiv="Refresh"
-	content="0;URL=/seproject/top">
+<meta http-equiv="Refresh" content="0;URL=/seproject/top">
 <title>Home</title>
 </head>
 <body>
