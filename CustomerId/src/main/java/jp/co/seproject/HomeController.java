@@ -10,7 +10,8 @@ public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Model model) {
-        return "home";
+
+		return "home";
     }
 
 	@RequestMapping(value = "/top", method = RequestMethod.GET)
@@ -20,7 +21,14 @@ public class HomeController {
 
 	@RequestMapping(value = "/entry", method = RequestMethod.GET)
     public String getentry(Model model) {
-        return "entry";
+/*        CustomerData cd = new CustomerData();
+        model.addAttribute("cD",cd);
+        SystemDao<CustomerData> dao = new SystemDaoImpl();
+        List<CustomerData> list = dao.getAll();
+		model.addAttribute("datalist", list);*/
+
+
+		return "entry";
     }
 	@RequestMapping(value = "/entry", method = RequestMethod.POST)
     public String postentry(Model model) {

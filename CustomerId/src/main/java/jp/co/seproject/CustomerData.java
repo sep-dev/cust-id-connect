@@ -35,7 +35,7 @@ public class CustomerData {
 	private String gender;
 
 	@Column
-	private int birth;
+	private String birth;
 
 	public int getId() {
 		return id;
@@ -85,11 +85,11 @@ public class CustomerData {
 		this.gender = gender;
 	}
 
-	public int getBirth() {
+	public String getBirth() {
 		return birth;
 	}
 
-	public void setBirth(int birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 }
