@@ -15,31 +15,31 @@
 <script type="text/javascript" charset="utf-8">
 	$(document).ready(function() {
 		$('#example').DataTable({
-		"language": {
-  "emptyTable" : "データが登録されていません。",
-  "info" : "_TOTAL_ 件中 _START_ 件から _END_ 件までを表示",
-  "infoEmpty" : "",
-  "infoFiltered" : "(_MAX_ 件からの絞り込み表示)",
-  "infoPostFix" : "",
-  "thousands" : ",",
-  "lengthMenu" : "1ページあたりの表示件数: _MENU_",
-  "loadingRecords" : "ロード中",
-  "processing" : "処理中...",
-  "search" : "検索",
-  "zeroRecords" : "該当するデータが見つかりませんでした。",
-  "paginate" : {
-    "first" : "先頭",
-    "previous" : "前へ",
-    "next" : "次へ",
-    "last" : "末尾"
-  }
-}
-		 });
+			"language" : {
+				"emptyTable" : "データが登録されていません。",
+				"info" : "_TOTAL_ 件中 _START_ 件から _END_ 件までを表示",
+				"infoEmpty" : "",
+				"infoFiltered" : "(_MAX_ 件からの絞り込み表示)",
+				"infoPostFix" : "",
+				"thousands" : ",",
+				"lengthMenu" : "1ページあたりの表示件数: _MENU_",
+				"loadingRecords" : "ロード中",
+				"processing" : "処理中...",
+				"search" : "検索",
+				"zeroRecords" : "該当するデータが見つかりませんでした。",
+				"paginate" : {
+					"first" : "先頭",
+					"previous" : "前へ",
+					"next" : "次へ",
+					"last" : "末尾"
+				}
+			}
+		});
 	});
 </script>
 </head>
 <body>
-<h1>カード一覧</h1>
+	<h1>カード一覧</h1>
 
 	<div class="container">
 
@@ -60,31 +60,36 @@
 					<td>00002</td>
 					<td>2P</td>
 					<td>2P</td>
-					<td>テスト２　さん</td>
-					<td><input type = button value = "詳細" onclick="location.href ='/ManageCard/detail/'"></td>
-					<td><input type = button value = "削除" onclick="kakunin(this.form);return false"></td>
-					<td><input type = button value = "更新" onclick="location.href = '/ManageCard/update/'"></td>
+					<td>テスト２ さん</td>
+					<td><input type=button value="詳細"
+						onclick="location.href ='/ManageCard/detail/'"></td>
+					<td><input type=button value="削除"
+						onclick="kakunin(this.form);return false"></td>
+					<td><input type=button value="更新"
+						onclick="location.href = '/ManageCard/update/'"></td>
 				</tr>
 				<tr>
 					<td>00004</td>
 					<td>10000P</td>
 					<td>10000P</td>
-					<td>テスト　さん</td>
-					<td><input type = button value = "詳細" onclick="location.href ='/ManageCard/detail/'"></td>
-					<td><input type = button value = "削除" onclick="kakunin(this.form);return false"></td>
-					<td><input type = button value = "更新" onclick="location.href = '/ManageCard/update/'"></td>
+					<td>テスト さん</td>
+					<td><input type=button value="詳細"
+						onclick="location.href ='/ManageCard/detail/'"></td>
+					<td><input type=button value="削除"
+						onclick="kakunin(this.form);return false"></td>
+					<td><input type=button value="更新"
+						onclick="location.href = '/ManageCard/update/'"></td>
 				</tr>
 			</tbody>
 		</table>
-<input type = button value = "トップ画面に戻る" onclick = "location.href ='/ManageCard/'">
+		<a href="/seproject/top"><input type=button value="トップ画面に戻る"></a>
 
 	</div>
 
 	<script type="text/javascript">
-	// For demo to fit into DataTables site builder...
-	$('#example')
-		.removeClass( 'display' )
-		.addClass('table table-striped table-bordered');
-</script>
+		// For demo to fit into DataTables site builder...
+		$('#example').removeClass('display').addClass(
+				'table table-striped table-bordered');
+	</script>
 </body>
 </html>
