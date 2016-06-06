@@ -22,11 +22,8 @@ public class SystemController {
 
 	@RequestMapping(value = "/entry", method = RequestMethod.GET)
 	public String getentry(Model model){
-		CustomerData fuck = new CustomerData();
-		model.addAttribute("test", "顧客登録");
-
-		model.addAttribute("customerData",fuck);
-
+		CustomerData cd = new CustomerData();
+		model.addAttribute("customerData",cd);
 
 		return "entry";
 
@@ -51,7 +48,7 @@ public class SystemController {
 
     @RequestMapping(value = "/list",params = "detail", method = RequestMethod.POST)
     public String listdetail(@ModelAttribute CustomerData cd, Model model) {
-        int name = cd.getId();
+        int id = cd.getId();
         //IDで情報を検索
 
         return "detail";
@@ -59,7 +56,7 @@ public class SystemController {
 
     @RequestMapping(value = "/list",params = "update", method = RequestMethod.POST)
     public String listupdate(@ModelAttribute CustomerData cd, Model model) {
-        int name = cd.getId();
+        int id = cd.getId();
         //IDで情報を検索
 
         return "update";
@@ -72,14 +69,11 @@ public class SystemController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String postupdate(@ModelAttribute CustomerData cd, Model model) {
-        String name = cd.getName();
-        String Address = cd.getAddress();
-        String tel = cd.getTel();
-        String mail = cd.getMailaddress();
-        //daoへわたす
-        System.out.println(name+Address+tel+mail);
-        return "update";
+    public String postupdate(@ModelAttribute CustomerData customerdata, Model model) {
+        SystemDao<CustomerData> dao = new SystemDaoImpl();
+        //dao.update(customerdata);
+
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
