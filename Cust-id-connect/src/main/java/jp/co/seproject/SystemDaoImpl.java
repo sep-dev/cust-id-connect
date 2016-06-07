@@ -14,7 +14,7 @@ public class SystemDaoImpl implements SystemDao<CustomerData> {
 
 	//CustomerData
 	//全件表示
-	public List<CustomerData> getCusAll() {
+	public List<CustomerData> getAll() {
 		EntityManager manager = factory.createEntityManager();
 		Query query = manager.createQuery("from CustomerData");
 		@SuppressWarnings("unchecked")
@@ -25,13 +25,13 @@ public class SystemDaoImpl implements SystemDao<CustomerData> {
 	}
 
 	//検索
-	public CustomerData findByCusId(int id){
+	public CustomerData findById(int id){
 	    EntityManager manager = factory.createEntityManager();
 	    return (CustomerData)manager.createQuery("from CustomerData where id = "+id).getSingleResult();
 	}
 
 	//登録
-	public void addCus(CustomerData customerdata) {
+	public void add(CustomerData customerdata) {
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
 		transaction.begin();
@@ -41,7 +41,7 @@ public class SystemDaoImpl implements SystemDao<CustomerData> {
 	}
 
 	//更新
-	public void updateCus(CustomerData customerdata) {
+	public void update(CustomerData customerdata) {
         EntityManager manager = factory.createEntityManager();
         EntityTransaction transaction = manager.getTransaction();
         transaction.begin();
@@ -50,13 +50,18 @@ public class SystemDaoImpl implements SystemDao<CustomerData> {
         manager.close();
     }
 
-	//CardData
-	public List<CardData> getCardAll() {
+	//削除
+	public void delete(int id){
+	    delete(findById(id));
+	}
+
+	public void delete(CustomerData customerdata) {
         EntityManager manager = factory.createEntityManager();
-        Query query = manager.createQuery("from CardData");
-        @SuppressWarnings("unchecked")
-        List<CardData> list = query.getResultList();
+        EntityTransaction transaction = manager.getTransaction();
+        transaction.begin();
+        CustomerData delete = manager.merge(customerdata);
+        manager.merge(delete);
+        transaction.commit();
         manager.close();
-        return list;
     }
 }

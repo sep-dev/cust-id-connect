@@ -5,13 +5,30 @@ import java.util.List;
 
 public interface SystemDao<T> extends Serializable {
 
-	public List<T> getCusAll();
+    //CustamerData
+	public List<T> getAll();
 
-	public CustomerData findByCusId(int id);
+	public T findById(int id);
 
-	public void addCus(CustomerData customerdata);
+	public void add(T data);
 
-    public void updateCus(CustomerData customerdata);
+    public void update(T data);
+
+    public void delete(int id);
+
+    public void delete(T data);
+
+   /* //CardData
+    public List<CardData> getCardAll();
+
+    public CardData findByCardId(int id);
+
+    public void addCard(CardData Carddata);
+
+    public void updateCard(CardData carddata);
+
+    public void deleteCard(int id);*/
+
 
 
 }

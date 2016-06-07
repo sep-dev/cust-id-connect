@@ -34,40 +34,24 @@ public class SystemController {
 	@RequestMapping(value = "/entry", method = RequestMethod.POST)
 	public String postentry(@ModelAttribute CustomerData customerdata, Model model) {
 		SystemDao<CustomerData> dao = new SystemDaoImpl();
-		dao.addCus(customerdata);
+		dao.add(customerdata);
 
 		return "redirect:/list";
 	}
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
         SystemDao<CustomerData> dao = new SystemDaoImpl();
-        List<CustomerData> list = dao.getCusAll();
+        List<CustomerData> list = dao.getAll();
         model.addAttribute("cuslist", list);
         CustomerData cd = new CustomerData();
         model.addAttribute("customerData", cd);
         return "list";
     }
-
-    @RequestMapping(value = "/list",params = "detail", method = RequestMethod.POST)
-    public String listdetail(@ModelAttribute CustomerData cd, Model model) {
-        /*int id = cd.getId();*/
-        //IDで情報を検索
-
-        return "detail";
-    }
-
-    @RequestMapping(value = "/list",params = "update", method = RequestMethod.POST)
-    public String listupdate(@ModelAttribute CustomerData cd, Model model) {
-        int id = cd.getId();
-        //IDで情報を検索
-
-        return "update";
-    }
     @RequestMapping(value = "/update", method = RequestMethod.GET)
     public String update(@RequestParam int id,Model model) {
         CustomerData cd = new CustomerData();
         SystemDao<CustomerData> dao = new SystemDaoImpl();
-        CustomerData iddata = dao.findByCusId(id);
+        CustomerData iddata = dao.findById(id);
         model.addAttribute("customerData", cd);
         model.addAttribute("iddata", iddata);
 
@@ -77,7 +61,7 @@ public class SystemController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String postupdate(@RequestParam int id, @ModelAttribute CustomerData customerdata, Model model) {
         SystemDao<CustomerData> dao = new SystemDaoImpl();
-        dao.updateCus(customerdata);
+        dao.update(customerdata);
 
         return "redirect:/list";
     }
@@ -85,7 +69,7 @@ public class SystemController {
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
     public String detail(@RequestParam int id,Model model) {
         SystemDao<CustomerData> dao = new SystemDaoImpl();
-        CustomerData iddata = dao.findByCusId(id);
+        CustomerData iddata = dao.findById(id);
         CardData cardd = new CardData();
         model.addAttribute("iddata", iddata);
         model.addAttribute("cardData", cardd);
@@ -103,6 +87,11 @@ public class SystemController {
 
     @RequestMapping(value = "/cardlist", method = RequestMethod.GET)
     public String cardlist(Model model) {
+        SystemDao<CardData> dao = new SystemDaoImplCard();
+        List<CardData> list = dao.getAll();
+        model.addAttribute("cardlist", list);
+        CardData cd = new CardData();
+        model.addAttribute("customerData", cd);
         return "cardlist";
     }
 
