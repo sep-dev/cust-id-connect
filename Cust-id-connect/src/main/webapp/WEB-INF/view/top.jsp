@@ -16,7 +16,7 @@
 		<a href="/Cust-id-connect/list"><input type=button value="顧客一覧"></a>
 	</P>
 	<p align=center>
-		<a href="/Cust-id-connect/list"><input type=button value="カード一覧"></a>
+		<a href="/Cust-id-connect/cardlist"><input type=button value="カード一覧"></a>
 		<a href="/Cust-id-connect/mail"><input type=button value="メール送信"></a>
 	</p>
 

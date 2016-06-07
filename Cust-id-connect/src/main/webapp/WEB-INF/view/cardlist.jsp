@@ -56,29 +56,46 @@
 				</tr>
 			</thead>
 			<tbody>
+
+				<c:forEach var="obj" items="${cuslist}" varStatus="status">
+					<tr>
+					<td><c:out value="${obj.cardnumber}"></c:out></td>
+					<td><c:out value="${obj.point}P"></c:out></td>
+					<td><c:out value="${obj.sumpoint}P"></c:out></td>
+					<td><form:form modelAttribute="cardData">
+					<%-- <form:hidden path="${obj.id}" /> --%>
+					<input type="submit" name="detail" value="詳細">
+					</form:form>
+					</td>
+					<td><input type=button value="削除"
+						onclick="kakunin(this.form);return false"></td>
+					<td><form:form modelAttribute="cardData">
+					<%-- <form:hidden path="${obj.id}" /> --%>
+					<input type="submit" name="update" value="更新">
+					</form:form>
+					</td>
+					</tr>
+				</c:forEach>
+
 				<tr>
 					<td>00002</td>
 					<td>2P</td>
 					<td>2P</td>
 					<td>テスト２ さん</td>
-					<td><input type=button value="詳細"
-						onclick="location.href ='/ManageCard/detail/'"></td>
+					<td><a href="/Cust-id-connect/detail"><input type=button value="詳細"></a></td>
 					<td><input type=button value="削除"
 						onclick="kakunin(this.form);return false"></td>
-					<td><input type=button value="更新"
-						onclick="location.href = '/ManageCard/update/'"></td>
+					<td><a href="/Cust-id-connect/update"><input type=button value="更新"></a></td>
 				</tr>
 				<tr>
 					<td>00004</td>
 					<td>10000P</td>
 					<td>10000P</td>
 					<td>テスト さん</td>
-					<td><input type=button value="詳細"
-						onclick="location.href ='/ManageCard/detail/'"></td>
+					<td><a href="/Cust-id-connect/detail"><input type=button value="詳細"></a></td>
 					<td><input type=button value="削除"
 						onclick="kakunin(this.form);return false"></td>
-					<td><input type=button value="更新"
-						onclick="location.href = '/ManageCard/update/'"></td>
+					<td><a href="/Cust-id-connect/update"><input type=button value="更新"></a></td>
 				</tr>
 			</tbody>
 		</table>

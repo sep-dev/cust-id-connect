@@ -1,28 +1,28 @@
 package jp.co.seproject;
 
-/*import javax.persistence.Column;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;*/
+import javax.persistence.Table;
 
-/*@Entity
-@Table(name="tbcard")*/
+@Entity
+@Table(name="tbcard")
 public class CardData {
 
-	/*@Id
+	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column*/
+	@Column
 	private int id;
 
-	/*@Column(length=40,nullable=false)*/
+	@Column(length=40,nullable=false)
 	private int cardnumber;
 
-	/*@Column(length=40,nullable=false)*/
+	@Column(length=40,nullable=false)
 	private int point;
 
-	/*@Column(length=40,nullable=false)*/
+	@Column(length=40,nullable=false)
 	private int sumpoint;
 
 	public int getId() {

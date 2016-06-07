@@ -5,7 +5,13 @@ import java.util.List;
 
 public interface SystemDao<T> extends Serializable {
 
-	public List<T> getAll();
+	public List<T> getCusAll();
 
-	public void add(CustomerData customerdata);
+	public CustomerData findByCusId(int id);
+
+	public void addCus(CustomerData customerdata);
+
+    public void updateCus(CustomerData customerdata);
+
+
 }

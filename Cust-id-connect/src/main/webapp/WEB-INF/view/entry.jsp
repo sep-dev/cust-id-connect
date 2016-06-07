@@ -74,7 +74,7 @@
 						<option disabled selected>性別を入力</option>
 						<option value = "男">男</option>
 						<option value = "女">女</option>
-						<option value = "ホモ">他</option>
+						<option value = "他">他</option>
 				</form:select></td>
 
 			</tr>

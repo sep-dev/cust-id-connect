@@ -1,5 +1,6 @@
 package jp.co.seproject;
 
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.stereotype.Controller;
@@ -7,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class SystemController {
@@ -32,15 +34,15 @@ public class SystemController {
 	@RequestMapping(value = "/entry", method = RequestMethod.POST)
 	public String postentry(@ModelAttribute CustomerData customerdata, Model model) {
 		SystemDao<CustomerData> dao = new SystemDaoImpl();
-		dao.add(customerdata);
+		dao.addCus(customerdata);
 
-		return "redirect:/";
+		return "redirect:/list";
 	}
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
-       /* SystemDao<?> dao = new SystemDaoImpl();
-        List<?> list = dao.getAll();
-        model.addAttribute("cuslist", list);*/
+        SystemDao<CustomerData> dao = new SystemDaoImpl();
+        List<CustomerData> list = dao.getCusAll();
+        model.addAttribute("cuslist", list);
         CustomerData cd = new CustomerData();
         model.addAttribute("customerData", cd);
         return "list";
@@ -48,7 +50,7 @@ public class SystemController {
 
     @RequestMapping(value = "/list",params = "detail", method = RequestMethod.POST)
     public String listdetail(@ModelAttribute CustomerData cd, Model model) {
-        int id = cd.getId();
+        /*int id = cd.getId();*/
         //IDで情報を検索
 
         return "detail";
@@ -62,18 +64,22 @@ public class SystemController {
         return "update";
     }
     @RequestMapping(value = "/update", method = RequestMethod.GET)
-    public String update(Model model) {
+    public String update(@RequestParam int id,Model model) {
         CustomerData cd = new CustomerData();
+        SystemDao<CustomerData> dao = new SystemDaoImpl();
+        CustomerData iddata = dao.findByCusId(id);
         model.addAttribute("customerData", cd);
+        model.addAttribute("iddata", iddata);
+
         return "update";
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String postupdate(@ModelAttribute CustomerData customerdata, Model model) {
         SystemDao<CustomerData> dao = new SystemDaoImpl();
-        //dao.update(customerdata);
+        /*dao.updateCus(customerdata);*/
 
-        return "redirect:/";
+        return "redirect:/list";
     }
 
     @RequestMapping(value = "/detail", method = RequestMethod.GET)

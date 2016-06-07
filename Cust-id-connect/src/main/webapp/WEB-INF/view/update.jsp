@@ -27,7 +27,7 @@
 
 			<tr>
 				<td>氏名</td>
-				<td><form:input path = "name"  placeholder="ここに氏名を入力" size="50" />
+				<td><form:input path = "name"  placeholder="ここに氏名を入力" size="50" value="${iddata.name}" />
 				 	<!-- required="required"
 					pattern="^[-a-zA-Z0-9ぁ-ゑァ-ヶ一-龠々][-a-zA-Z0-9ぁ-ゑんァ-ヶ一-龠々 　]{0,254}$"
 					title="氏名は半角英数字、かな漢字のみで記入してください。"  /> --></td>
@@ -36,7 +36,7 @@
 			</tr>
 			<tr>
 				<td>住所</td>
-				<td><form:input path="address" placeholder="ここに住所を入力" size="50" />
+				<td><form:input path="address" placeholder="ここに住所を入力" size="50" value="${iddata.address}"/>
 					<%-- required="required"
 					pattern="^[-a-zA-Z0-9ぁ-ゑァ-ヶ一-龠々][-a-zA-Z0-9ぁ-ゑんァ-ヶ一-龠々 　]{0,254}$"
 					title="住所は半角英数字、かな漢字のみで記入してください。" --%></td>
@@ -44,7 +44,7 @@
 			</tr>
 			<tr>
 				<td>電話番号</td>
-				<td><form:input path="tel" placeholder="ここに電話番号を入力 " size="50" />
+				<td><form:input path="tel" placeholder="ここに電話番号を入力 " size="50" value="${iddata.tel}"/>
 					<%-- required="required" pattern="\d{1,5}-\d{1,4}-\d{3,5}"
 					title="電話番号は、市外局番からハイフン（-）を入れて記入してください。" --%></td>
 				<td><font color="red">＜"必須"＞</font></td>
@@ -52,7 +52,7 @@
 
 			<tr>
 				<td>メールアドレス</td>
-				<td><form:input path="mailaddress" placeholder="ここにメールアドレスを入力" size="50" /></td>
+				<td><form:input path="mailaddress" placeholder="ここにメールアドレスを入力" size="50" value="${iddata.mailaddress}"/></td>
 			</tr>
 			<tr>
 				<td>誕生月</td>
@@ -74,7 +74,7 @@
 						<option disabled selected>性別を入力</option>
 						<option value = "男">男</option>
 						<option value = "女">女</option>
-						<option value = "ホモ">他</option>
+						<option value = "他">他</option>
 				</form:select></td>
 
 			</tr>

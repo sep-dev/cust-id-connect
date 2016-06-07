@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <html>
@@ -64,21 +65,27 @@
 				</tr>
 			</thead>
 			<tbody>
-				<%-- <c:forEach var="obj" items="${datalist}" varStatus="status">
+
+				<c:forEach var="obj" items="${cuslist}" varStatus="status">
+					<tr>
 					<td><c:out value="${obj.name}"></c:out></td>
 					<td><c:out value="${obj.address}"></c:out></td>
 					<td><c:out value="${obj.tel}"></c:out></td>
-					<td><form:form modelAttribute="customerData">
-					<form:hidden path="${obj.id}" />
-					<input type="submit" name="detail" value="詳細">
-					</form:form>
+					<td><form action="/Cust-id-connect/detail">
+					<input type="hidden" name="id" value='<c:out value="${obj.id}"></c:out>' />
+					<input type="submit" value="詳細">
+					</form>
 					</td>
-					<td><form:form modelAttribute="customerData">
-					<form:hidden path="${obj.id}" />
-					<input type="submit" name="update" value="更新">
-					</form:form>
+					<td><input type=button value="削除"
+						onclick="kakunin(this.form);return false"></td>
+					<td><form action="/Cust-id-connect/update">
+					<input type="hidden" name="id" value='<c:out value="${obj.id}"></c:out>' />
+					<input type="submit" value="更新">
+					</form>
 					</td>
-				</c:forEach> --%>
+					</tr>
+				</c:forEach>
+
 				<tr>
 
 					<td>テスト さん</td>
