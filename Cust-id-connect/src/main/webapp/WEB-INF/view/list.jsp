@@ -86,7 +86,7 @@
 					</tr>
 				</c:forEach>
 
-				<tr>
+				<!-- <tr>
 
 					<td>テスト さん</td>
 					<td>埼玉県</td>
@@ -109,7 +109,7 @@
 						onclick="kakunin(this.form);return false"></td>
 					<td><a href="/Cust-id-connect/update"><input type=button
 							value="更新"></a></td>
-				</tr>
+				</tr> -->
 			</tbody>
 		</table>
 		<a href="/Cust-id-connect/top"><input type=button value="トップ画面に戻る"></a>

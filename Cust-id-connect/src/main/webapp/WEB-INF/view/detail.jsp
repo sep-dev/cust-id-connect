@@ -55,32 +55,45 @@
 <body>
 	<h1>顧客詳細</h1>
 	<table>
-
-		<tr>
-			<td align=right>氏名：</td>
-			<td>テスト さん</td>
+		<tr><td width=20%></td>
+			<td align=justify width=20%>氏名</td>
+			<td width=10%>:</td>
+			<td width=20%>${iddata.name}</td>
 		</tr>
-		<tr>
-			<td align=right>住所：</td>
-			<td>埼玉県</td>
+		<tr><td></td>
+			<td align=justify>住所</td>
+			<td>:</td>
+			<td>${iddata.address}</td>
 		</tr>
-		<tr>
-			<td align=right>電話番号：</td>
-			<td>0120-117-117</td>
+		<tr><td></td>
+			<td align=justify>電話番号</td>
+			<td>:</td>
+			<td>${iddata.tel}</td>
 		</tr>
-		<tr>
-			<td align=right>メールアドレス：</td>
-			<td>y.maeda@haru-house.com</td>
+		<tr><td></td>
+			<td align=justify>メールアドレス</td>
+			<td>:</td>
+			<td>${iddata.mailaddress}</td>
 		</tr>
-		<tr>
-			<td align=right>誕生月：</td>
-			<td>4月</td>
+		<tr><td></td>
+			<td align=justify>誕生月</td>
+			<td>:</td>
+			<td>${iddata.birth}</td>
 		</tr>
-
-
+		<tr><td></td>
+			<td align=justify>性別</td>
+			<td>:</td>
+			<td>${iddata.gender}</td>
+		</tr>
+		<tr><td></td><td></td><td></td><td>
+     	<td><form action="/Cust-id-connect/update">
+		<input type="hidden" name="id" value='<c:out value="${iddata.id}"></c:out>' />
+		<input type="submit" value="更新">
+		</form>
+		</td>
+		</tr>
 	</table>
-	<a href="/Cust-id-connect/update"><input type=button
-			value="更新"></a>
+
 	<hr>
 
 	<h2>カード情報</h2>

@@ -83,9 +83,12 @@ public class SystemController {
     }
 
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    public String detail(Model model) {
-            CardData cardd = new CardData();
-            model.addAttribute("cardData", cardd);
+    public String detail(@RequestParam int id,Model model) {
+        SystemDao<CustomerData> dao = new SystemDaoImpl();
+        CustomerData iddata = dao.findByCusId(id);
+        CardData cardd = new CardData();
+        model.addAttribute("iddata", iddata);
+        model.addAttribute("cardData", cardd);
 
         return "detail";
     }
