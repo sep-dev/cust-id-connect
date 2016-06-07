@@ -91,7 +91,7 @@ public class SystemController {
         List<CardData> list = dao.getAll();
         model.addAttribute("cardlist", list);
         CardData cd = new CardData();
-        model.addAttribute("customerData", cd);
+        model.addAttribute("cardData", cd);
         return "cardlist";
     }
 

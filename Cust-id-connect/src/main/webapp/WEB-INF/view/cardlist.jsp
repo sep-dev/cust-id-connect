@@ -58,22 +58,22 @@
 			</thead>
 			<tbody>
 
-				<c:forEach var="obj" items="${cuslist}" varStatus="status">
+				<c:forEach var="obj" items="${cardlist}" varStatus="status">
 					<tr>
 					<td><c:out value="${obj.cardnumber}"></c:out></td>
 					<td><c:out value="${obj.point}P"></c:out></td>
 					<td><c:out value="${obj.sumpoint}P"></c:out></td>
-					<td><form:form modelAttribute="cardData">
-					<%-- <form:hidden path="${obj.id}" /> --%>
-					<input type="submit" name="detail" value="詳細">
-					</form:form>
-					</td>
+					<td>名前</td>
+					<td><form action="/Cust-id-connect/detail">
+					<input type="hidden" name="id" value='<c:out value="${obj.id}"></c:out>' />
+					<input type="submit" value="詳細">
+					</form>
 					<td><input type=button value="削除"
 						onclick="kakunin(this.form);return false"></td>
-					<td><form:form modelAttribute="cardData">
-					<%-- <form:hidden path="${obj.id}" /> --%>
-					<input type="submit" name="update" value="更新">
-					</form:form>
+					<td><form action="/Cust-id-connect/update">
+					<input type="hidden" name="id" value='<c:out value="${obj.id}"></c:out>' />
+					<input type="submit" value="更新">
+					</form>
 					</td>
 					</tr>
 				</c:forEach>
