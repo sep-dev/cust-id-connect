@@ -75,9 +75,9 @@ public class SystemController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String postupdate(@ModelAttribute CustomerData customerdata, Model model) {
+    public String postupdate(@RequestParam int id, @ModelAttribute CustomerData customerdata, Model model) {
         SystemDao<CustomerData> dao = new SystemDaoImpl();
-        /*dao.updateCus(customerdata);*/
+        dao.updateCus(customerdata);
 
         return "redirect:/list";
     }

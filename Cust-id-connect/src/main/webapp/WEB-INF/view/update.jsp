@@ -79,7 +79,8 @@
 
 			</tr>
 			<tr>
-				<td></td>
+				<td>
+				<input type="hidden" name="id" value="${iddata.id}" /></td>
 				<td><input type="submit" value="更新" /> <input type="reset" />
 					<a href="/Cust-id-connect/list"><input type="button" value="一覧画面に戻る" /></a>
 					<a href="/Cust-id-connect/top"><input type="button" value="トップ画面に戻る" /></a></td>
