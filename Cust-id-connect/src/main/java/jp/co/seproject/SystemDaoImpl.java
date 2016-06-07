@@ -12,7 +12,6 @@ public class SystemDaoImpl implements SystemDao<CustomerData> {
 	private static final long serialVersionUID = 1L;
 	private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistenceUnit");
 
-	//CustomerData
 	//全件表示
 	public List<CustomerData> getAll() {
 		EntityManager manager = factory.createEntityManager();

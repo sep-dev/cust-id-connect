@@ -70,9 +70,12 @@ public class SystemController {
     public String detail(@RequestParam int id,Model model) {
         SystemDao<CustomerData> dao = new SystemDaoImpl();
         CustomerData iddata = dao.findById(id);
-        CardData cardd = new CardData();
+        SystemDao<CardData> daocard = new SystemDaoImplCard();
+        List<CardData> list = daocard.getAll(/*id*/);
+        model.addAttribute("cardlist", list);
+        CardData cd = new CardData();
         model.addAttribute("iddata", iddata);
-        model.addAttribute("cardData", cardd);
+        model.addAttribute("cardData", cd);
 
         return "detail";
     }

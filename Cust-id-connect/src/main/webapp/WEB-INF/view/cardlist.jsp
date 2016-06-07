@@ -63,14 +63,16 @@
 					<td><c:out value="${obj.cardnumber}"></c:out></td>
 					<td><c:out value="${obj.point}P"></c:out></td>
 					<td><c:out value="${obj.sumpoint}P"></c:out></td>
-					<td>名前</td>
+					<td>"S{obj.name}"</td>
 					<td><form action="/Cust-id-connect/detail">
+					<% //ここのidをcusidに直す %>
 					<input type="hidden" name="id" value='<c:out value="${obj.id}"></c:out>' />
 					<input type="submit" value="詳細">
 					</form>
 					<td><input type=button value="削除"
 						onclick="kakunin(this.form);return false"></td>
 					<td><form action="/Cust-id-connect/update">
+					<% //ここのidをcusidに直す %>
 					<input type="hidden" name="id" value='<c:out value="${obj.id}"></c:out>' />
 					<input type="submit" value="更新">
 					</form>
@@ -78,7 +80,7 @@
 					</tr>
 				</c:forEach>
 
-				<tr>
+				<!-- <tr>
 					<td>00002</td>
 					<td>2P</td>
 					<td>2P</td>
@@ -97,7 +99,7 @@
 					<td><input type=button value="削除"
 						onclick="kakunin(this.form);return false"></td>
 					<td><a href="/Cust-id-connect/update"><input type=button value="更新"></a></td>
-				</tr>
+				</tr> -->
 			</tbody>
 		</table>
 		<a href="/Cust-id-connect/top"><input type=button value="トップ画面に戻る"></a>

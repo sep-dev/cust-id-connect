@@ -12,11 +12,10 @@ public class SystemDaoImplCard implements SystemDao<CardData> {
     private static final long serialVersionUID = 1L;
     private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistenceUnit");
 
-    //CardData
     //全件表示
     public List<CardData> getAll() {
         EntityManager manager = factory.createEntityManager();
-        Query query = manager.createQuery("from CardData");
+        Query query = manager.createQuery("from CardData ");
         @SuppressWarnings("unchecked")
         List<CardData> list = query.getResultList();
         manager.close();
@@ -25,7 +24,7 @@ public class SystemDaoImplCard implements SystemDao<CardData> {
     //検索
     public CardData findById(int id){
         EntityManager manager = factory.createEntityManager();
-        return (CardData)manager.createQuery("from CustomerData where id = "+id).getSingleResult();
+        return (CardData)manager.createQuery("from CordData where id = "+id).getSingleResult();
     }
 
     //登録

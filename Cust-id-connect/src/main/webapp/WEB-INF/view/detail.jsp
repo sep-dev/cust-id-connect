@@ -103,14 +103,23 @@
 			<thead>
 				<tr>
 					<th align=center>カードナンバー</th>
-					<th align=center>累計ポイント</th>
 					<th align=center>ポイント残高</th>
+					<th align=center>累計ポイント</th>
 
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<c:forEach var="obj" items="${cardlist}" varStatus="status">
+					<tr>
+					<td><c:out value="${obj.cardnumber}"></c:out></td>
+					<td><c:out value="${obj.point}P"></c:out></td>
+					<td><c:out value="${obj.sumpoint}P"></c:out></td>
+					<td><input type=button value="削除"
+						onclick="kakunin(this.form);return false"></td>
+					</tr>
+				</c:forEach>
+				<!-- <tr>
 					<td>00001</td>
 					<td>100P</td>
 					<td>0P</td>
@@ -125,7 +134,7 @@
 					<td>10000P</td>
 
 					<td><input type=button value="削除"
-						onclick="kakunin(this.form);return false"></td>
+						onclick="kakunin(this.form);return false"></td> -->
 			</tbody>
 		</table>
 		<br>
