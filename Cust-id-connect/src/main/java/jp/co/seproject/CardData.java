@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tbcard")
+@Table(name="tbcard2")
 public class CardData {
 
 	@Id

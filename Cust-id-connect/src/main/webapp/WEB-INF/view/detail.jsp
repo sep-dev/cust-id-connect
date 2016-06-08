@@ -140,8 +140,8 @@
 		<form:form modelAttribute="cardData">
 
 
-			<form:input path="cardnumber" placeholder="カードIDを入力" size="50" />
-			<form:input path="point" placeholder="現ポイントを入力" size="50" />
+			<form:input path="cardnumber" placeholder="カードIDを入力" size="50" pattern="[\d]+$" required="required"/>
+			<form:input path="point" placeholder="現ポイントを入力" size="50" pattern="[\d]+$" required="required"/>
 			<form:hidden path="cus" value="${iddata.id}" />
 			<input type="submit" name="add" value="登録" />
 
