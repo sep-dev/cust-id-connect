@@ -90,12 +90,19 @@ public class SystemController {
         return "detail";
     }
 
-    @RequestMapping(value = "/detail", method = RequestMethod.POST)
-    public String postdetail(@ModelAttribute CardData cd, Model model) {
+   @RequestMapping(value = "/detail", params = "add" , method = RequestMethod.POST)
+    public String postdetailadd(@ModelAttribute CardData cd, Model model) {
         int number = cd.getCardnumber();
         int point = cd.getPoint();
         System.out.println(number+"と"+point);
         return "detail";
+    }
+
+    @RequestMapping(value = "/detail", params = "delete" , method = RequestMethod.POST)
+    public String postdetaildelete(@RequestParam int id,@ModelAttribute CardData cd, Model model) {
+        SystemDao<CardData> dao = new SystemDaoImplCard();
+        dao.delete(id);
+        return "redirect:/detail";
     }
 
     @RequestMapping(value = "/cardlist", method = RequestMethod.GET)
@@ -107,6 +114,14 @@ public class SystemController {
         model.addAttribute("cardData", cd);
         return "cardlist";
     }
+
+    @RequestMapping(value = "/cardlist", method = RequestMethod.POST)
+    public String postcardlist(@RequestParam int id,Model model) {
+        SystemDao<CardData> dao = new SystemDaoImplCard();
+        dao.delete(id);
+        return "redirect:/cardlist";
+    }
+
 
     @RequestMapping(value = "/mail", method = RequestMethod.GET)
     public String mail(Model model) {

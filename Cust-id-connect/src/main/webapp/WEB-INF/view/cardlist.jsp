@@ -69,8 +69,12 @@
 					<input type="hidden" name="id" value='<c:out value="${obj.id}"></c:out>' />
 					<input type="submit" value="詳細">
 					</form>
-					<td><input type=button value="削除"
-						onclick="kakunin(this.form);return false"></td>
+					<td>
+							<form action="/Cust-id-connect/cardlist" method=post>
+								<input type="hidden" name="id"
+									value='<c:out value="${obj.id}"></c:out>' /> <input
+									type=submit value="削除" >
+							</form>
 					<td><form action="/Cust-id-connect/update">
 					<% //ここのidをcusidに直す %>
 					<input type="hidden" name="id" value='<c:out value="${obj.id}"></c:out>' />

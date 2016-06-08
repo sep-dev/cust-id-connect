@@ -115,8 +115,12 @@
 					<td><c:out value="${obj.cardnumber}"></c:out></td>
 					<td><c:out value="${obj.point}P"></c:out></td>
 					<td><c:out value="${obj.sumpoint}P"></c:out></td>
-					<td><input type=button value="削除"
-						onclick="kakunin(this.form);return false"></td>
+					<td>
+							<form action="/Cust-id-connect/detail" method=post>
+								<input type="hidden" name="id"
+									value='<c:out value="${obj.id}"></c:out>' /> <input
+									type=submit name="delete"  value="削除" >
+							</form>
 					</tr>
 				</c:forEach>
 				<!-- <tr>
@@ -142,7 +146,7 @@
 			<br>
 			<form:input path="cardnumber" placeholder="カードIDを入力" size="50" />
 			<form:input path="point" placeholder="現ポイントを入力" size="50" />
-			<input type="submit" value="登録" />
+			<input type="submit" name="add" value="登録" />
 			<br>
 			<br>
 		</form:form>
