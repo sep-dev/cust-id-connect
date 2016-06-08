@@ -49,7 +49,7 @@
 				<tr>
 					<th align=center>カードナンバー</th>
 					<th align=center>累計ポイント</th>
-					<th align=center>ポイント残高</th>
+
 					<th align=center>氏名</th>
 					<th></th>
 					<th></th>
@@ -62,7 +62,7 @@
 					<tr>
 						<td><c:out value="${obj.cardnumber}"></c:out></td>
 						<td><c:out value="${obj.point}P"></c:out></td>
-						<td><c:out value="${obj.sumpoint}P"></c:out></td>
+
 						<td>"S{obj.name}"</td>
 						<td><form action="/Cust-id-connect/detail">
 								<%

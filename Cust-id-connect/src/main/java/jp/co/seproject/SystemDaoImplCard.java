@@ -32,7 +32,7 @@ public class SystemDaoImplCard implements SystemDao<CardData> {
         EntityManager manager = factory.createEntityManager();
         EntityTransaction transaction = manager.getTransaction();
         transaction.begin();
-        manager.persist(carddata);
+		manager.persist(carddata);
         transaction.commit();
         manager.close();
     }
@@ -63,10 +63,11 @@ public class SystemDaoImplCard implements SystemDao<CardData> {
     }
 
 	// cusidから検索
-	public List<CardData> findByCusId(int cusid) {
+	public List<CardData> findByCusId(int cus) {
 		EntityManager manager = factory.createEntityManager();
-		Query query = manager.createQuery("from CardData where cusid= " + cusid);
+		Query query = manager.createQuery("from CardData where cus= " + cus);
 
+		@SuppressWarnings("unchecked")
 		List<CardData> list = query.getResultList();
 		manager.close();
 		return list;

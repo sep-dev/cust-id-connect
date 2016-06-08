@@ -69,7 +69,7 @@ public class SystemController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String postupdate(@RequestParam int id, @ModelAttribute CustomerData customerdata, Model model) {
+	public String postupdate(@RequestParam int id, @ModelAttribute CustomerData customerdata, Model model) {
         SystemDao<CustomerData> dao = new SystemDaoImpl();
         dao.update(customerdata);
 
@@ -86,25 +86,31 @@ public class SystemController {
 
 		model.addAttribute("cardlist", list);
         CardData cd = new CardData();
+
         model.addAttribute("iddata", iddata);
-        model.addAttribute("cardData", cd);
+		model.addAttribute("cardData", cd);
 
         return "detail";
     }
 
    @RequestMapping(value = "/detail", params = "add" , method = RequestMethod.POST)
     public String postdetailadd(@ModelAttribute CardData cd, Model model) {
-        int number = cd.getCardnumber();
-        int point = cd.getPoint();
-        System.out.println(number+"と"+point);
-        return "detail";
+		SystemDao<CardData> dao = new SystemDaoImplCard();
+
+		System.out.println("cus=" + cd.getCus());
+		System.out.println(cd.getCardnumber());
+		System.out.println("id=" + cd.getIds());
+		System.out.println(cd.getPoint());
+
+		dao.add(cd);
+		return "detail";
     }
 
     @RequestMapping(value = "/detail", params = "delete" , method = RequestMethod.POST)
-    public String postdetaildelete(@RequestParam int id,@ModelAttribute CardData cd, Model model) {
+	public String postdetaildelete(@RequestParam int id, @ModelAttribute CardData cd, Model model) {
         SystemDao<CardData> dao = new SystemDaoImplCard();
         dao.delete(id);
-        return "redirect:/detail";
+		return "detail";
     }
 
     @RequestMapping(value = "/cardlist", method = RequestMethod.GET)
@@ -112,14 +118,15 @@ public class SystemController {
         SystemDao<CardData> dao = new SystemDaoImplCard();
         List<CardData> list = dao.getAll();
         model.addAttribute("cardlist", list);
-        CardData cd = new CardData();
+		CardData cd = new CardData();
         model.addAttribute("cardData", cd);
         return "cardlist";
     }
 
     @RequestMapping(value = "/cardlist", method = RequestMethod.POST)
     public String postcardlist(@RequestParam int id,Model model) {
-        SystemDao<CardData> dao = new SystemDaoImplCard();
+
+    	SystemDao<CardData> dao = new SystemDaoImplCard();
         dao.delete(id);
         return "redirect:/cardlist";
     }

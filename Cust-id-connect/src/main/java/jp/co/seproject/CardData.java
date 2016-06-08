@@ -12,9 +12,9 @@ import javax.persistence.Table;
 public class CardData {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column
-	private int id;
+	private int ids;
 
 	@Column(length=40,nullable=false)
 	private int cardnumber;
@@ -23,14 +23,14 @@ public class CardData {
 	private int point;
 
 	@Column(length=40,nullable=false)
-	private int cusid;
+	private int cus;
 
-	public int getId() {
-		return id;
+	public int getIds() {
+		return ids;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIds(int ids) {
+		this.ids = ids;
 	}
 
 	public int getCardnumber() {
@@ -49,11 +49,13 @@ public class CardData {
 		this.point = point;
 	}
 
-	public int getCusid() {
-		return cusid;
+
+
+	public int getCus() {
+		return cus;
 	}
 
-	public void setCusid(int cusid) {
-		this.cusid = cusid;
+	public void setCus(int cus) {
+		this.cus = cus;
 	}
 }

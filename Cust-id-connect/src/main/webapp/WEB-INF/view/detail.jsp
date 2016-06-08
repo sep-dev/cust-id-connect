@@ -55,42 +55,52 @@
 <body>
 	<h1>顧客詳細</h1>
 	<table>
-		<tr><td width=20%></td>
+		<tr>
+			<td width=20%></td>
 			<td align=justify width=20%>氏名</td>
 			<td width=10%>:</td>
 			<td width=20%>${iddata.name}</td>
 		</tr>
-		<tr><td></td>
+		<tr>
+			<td></td>
 			<td align=justify>住所</td>
 			<td>:</td>
 			<td>${iddata.address}</td>
 		</tr>
-		<tr><td></td>
+		<tr>
+			<td></td>
 			<td align=justify>電話番号</td>
 			<td>:</td>
 			<td>${iddata.tel}</td>
 		</tr>
-		<tr><td></td>
+		<tr>
+			<td></td>
 			<td align=justify>メールアドレス</td>
 			<td>:</td>
 			<td>${iddata.mailaddress}</td>
 		</tr>
-		<tr><td></td>
+		<tr>
+			<td></td>
 			<td align=justify>誕生月</td>
 			<td>:</td>
 			<td>${iddata.birth}</td>
 		</tr>
-		<tr><td></td>
+		<tr>
+			<td></td>
 			<td align=justify>性別</td>
 			<td>:</td>
 			<td>${iddata.gender}</td>
 		</tr>
-		<tr><td></td><td></td><td></td><td>
-     	<td><form action="/Cust-id-connect/update">
-		<input type="hidden" name="id" value='<c:out value="${iddata.id}"></c:out>' />
-		<input type="submit" value="更新">
-		</form>
-		</td>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>
+			<td><form action="/Cust-id-connect/update">
+					<input type="hidden" name="id"
+						value='<c:out value="${iddata.id}"></c:out>' /> <input
+						type="submit" value="更新">
+				</form></td>
 		</tr>
 	</table>
 
@@ -104,7 +114,7 @@
 				<tr>
 					<th align=center>カードナンバー</th>
 					<th align=center>ポイント残高</th>
-					<th align=center>累計ポイント</th>
+
 
 					<th></th>
 				</tr>
@@ -112,14 +122,15 @@
 			<tbody>
 				<c:forEach var="obj" items="${cardlist}" varStatus="status">
 					<tr>
-					<td><c:out value="${obj.cardnumber}"></c:out></td>
-					<td><c:out value="${obj.point}P"></c:out></td>
+						<td><c:out value="${obj.cardnumber}"></c:out></td>
+						<td><c:out value="${obj.point}P"></c:out></td>
 
-					<td>
+						<td>
 							<form action="/Cust-id-connect/detail" method=post>
 								<input type="hidden" name="id"
-									value='<c:out value="${obj.id}"></c:out>' /> <input
-									type=submit name="delete"  value="削除" onclick="return confirm('送信しても良いですか？')">
+									value='<c:out value="${obj.ids}"></c:out>' /> <input
+									type=submit name="delete" value="削除"
+									onclick="return confirm('削除しても良いですか？')">
 							</form>
 					</tr>
 				</c:forEach>
@@ -128,9 +139,11 @@
 		</table>
 		<br>
 		<form:form modelAttribute="cardData">
-			<br>
+
+
 			<form:input path="cardnumber" placeholder="カードIDを入力" size="50" />
 			<form:input path="point" placeholder="現ポイントを入力" size="50" />
+			<form:hidden path="cus" value="${iddata.id}" />
 			<input type="submit" name="add" value="登録" />
 			<br>
 			<br>
