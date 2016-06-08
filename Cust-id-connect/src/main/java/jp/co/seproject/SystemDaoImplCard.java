@@ -57,7 +57,7 @@ public class SystemDaoImplCard implements SystemDao<CardData> {
         EntityTransaction transaction = manager.getTransaction();
         transaction.begin();
         CardData delete = manager.merge(Carddata);
-        manager.merge(delete);
+        manager.remove(delete);
         transaction.commit();
         manager.close();
     }

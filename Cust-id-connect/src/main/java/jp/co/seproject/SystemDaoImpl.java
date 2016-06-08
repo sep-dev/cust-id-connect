@@ -59,7 +59,7 @@ public class SystemDaoImpl implements SystemDao<CustomerData> {
         EntityTransaction transaction = manager.getTransaction();
         transaction.begin();
         CustomerData delete = manager.merge(customerdata);
-        manager.merge(delete);
+        manager.remove(delete);
         transaction.commit();
         manager.close();
     }
