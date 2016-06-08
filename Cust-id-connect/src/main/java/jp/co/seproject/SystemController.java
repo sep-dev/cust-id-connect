@@ -80,9 +80,11 @@ public class SystemController {
     public String detail(@RequestParam int id,Model model) {
         SystemDao<CustomerData> dao = new SystemDaoImpl();
         CustomerData iddata = dao.findById(id);
-        SystemDao<CardData> daocard = new SystemDaoImplCard();
-        List<CardData> list = daocard.getAll(/*id*/);
-        model.addAttribute("cardlist", list);
+		SystemDaoImplCard daocard = new SystemDaoImplCard();
+		// ここまでおｋ
+		List<CardData> list = daocard.findByCusId(id);
+
+		model.addAttribute("cardlist", list);
         CardData cd = new CardData();
         model.addAttribute("iddata", iddata);
         model.addAttribute("cardData", cd);

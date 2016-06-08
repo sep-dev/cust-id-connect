@@ -23,7 +23,7 @@ public class CardData {
 	private int point;
 
 	@Column(length=40,nullable=false)
-	private int sumpoint;
+	private int cusid;
 
 	public int getId() {
 		return id;
@@ -49,11 +49,11 @@ public class CardData {
 		this.point = point;
 	}
 
-	public int getSumpoint() {
-		return sumpoint;
+	public int getCusid() {
+		return cusid;
 	}
 
-	public void setSumpoint(int sumpoint) {
-		this.sumpoint = sumpoint;
+	public void setCusid(int cusid) {
+		this.cusid = cusid;
 	}
 }

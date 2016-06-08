@@ -61,6 +61,18 @@ public class SystemDaoImplCard implements SystemDao<CardData> {
         transaction.commit();
         manager.close();
     }
+
+	// cusidから検索
+	public List<CardData> findByCusId(int cusid) {
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createQuery("from CardData where cusid= " + cusid);
+
+		List<CardData> list = query.getResultList();
+		manager.close();
+		return list;
+	}
+
+
 }
 
 

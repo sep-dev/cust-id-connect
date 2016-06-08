@@ -114,7 +114,7 @@
 					<tr>
 					<td><c:out value="${obj.cardnumber}"></c:out></td>
 					<td><c:out value="${obj.point}P"></c:out></td>
-					<td><c:out value="${obj.sumpoint}P"></c:out></td>
+
 					<td>
 							<form action="/Cust-id-connect/detail" method=post>
 								<input type="hidden" name="id"
@@ -123,22 +123,7 @@
 							</form>
 					</tr>
 				</c:forEach>
-				<!-- <tr>
-					<td>00001</td>
-					<td>100P</td>
-					<td>0P</td>
 
-					<td><input type=button value="削除"
-						onclick="kakunin(this.form);return false"></td>
-
-				</tr>
-				<tr>
-					<td>00004</td>
-					<td>10000P</td>
-					<td>10000P</td>
-
-					<td><input type=button value="削除"
-						onclick="kakunin(this.form);return false"></td> -->
 			</tbody>
 		</table>
 		<br>
