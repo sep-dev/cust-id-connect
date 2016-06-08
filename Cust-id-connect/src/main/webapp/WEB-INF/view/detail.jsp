@@ -127,10 +127,9 @@
 
 						<td>
 							<form action="/Cust-id-connect/detail" method=post>
-								<input type="hidden" name="id"
-									value='<c:out value="${obj.ids}"></c:out>' /> <input
-									type=submit name="delete" value="削除"
-									onclick="return confirm('削除しても良いですか？')">
+								<input type="hidden" name="cardid" value='<c:out value="${obj.ids}"></c:out>' />
+								<input type="hidden" name="cusid" value='<c:out value="${obj.cus}"></c:out>'/>
+								<input type=submit name="delete" value="削除" onclick="return confirm('削除しても良いですか？')">
 							</form>
 					</tr>
 				</c:forEach>
@@ -145,6 +144,7 @@
 			<form:input path="point" placeholder="現ポイントを入力" size="50" />
 			<form:hidden path="cus" value="${iddata.id}" />
 			<input type="submit" name="add" value="登録" />
+
 			<br>
 			<br>
 		</form:form>

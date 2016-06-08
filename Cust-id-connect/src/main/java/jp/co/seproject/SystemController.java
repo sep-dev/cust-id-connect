@@ -94,7 +94,7 @@ public class SystemController {
     }
 
    @RequestMapping(value = "/detail", params = "add" , method = RequestMethod.POST)
-    public String postdetailadd(@ModelAttribute CardData cd, Model model) {
+	public String postdetailadd(@ModelAttribute CardData cd, Model model) {
 		SystemDao<CardData> dao = new SystemDaoImplCard();
 
 		System.out.println("cus=" + cd.getCus());
@@ -103,14 +103,18 @@ public class SystemController {
 		System.out.println(cd.getPoint());
 
 		dao.add(cd);
-		return "detail";
+
+		return "redirect:/detail?id=" + cd.getCus();
     }
 
     @RequestMapping(value = "/detail", params = "delete" , method = RequestMethod.POST)
-	public String postdetaildelete(@RequestParam int id, @ModelAttribute CardData cd, Model model) {
-        SystemDao<CardData> dao = new SystemDaoImplCard();
-        dao.delete(id);
-		return "detail";
+	public String postdetaildelete(@RequestParam int cardid, @RequestParam("cusid") int cus, CardData cd, Model model) {
+
+    	SystemDao<CardData> dao = new SystemDaoImplCard();
+
+		dao.delete(cardid);
+
+		return "redirect:/detail?id=" + cus;
     }
 
     @RequestMapping(value = "/cardlist", method = RequestMethod.GET)
