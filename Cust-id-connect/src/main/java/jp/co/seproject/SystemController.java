@@ -47,6 +47,16 @@ public class SystemController {
         model.addAttribute("customerData", cd);
         return "list";
     }
+
+	@RequestMapping(value = "/list", method = RequestMethod.POST)
+	public String postlist(@RequestParam int id, Model model) {
+		SystemDao<CustomerData> dao = new SystemDaoImpl();
+		dao.delete(id);
+
+
+		return "redirect:/list";
+
+	}
     @RequestMapping(value = "/update", method = RequestMethod.GET)
     public String update(@RequestParam int id,Model model) {
         CustomerData cd = new CustomerData();

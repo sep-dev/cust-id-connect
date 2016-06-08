@@ -38,19 +38,11 @@
 		});
 	});
 </script>
-<script language="JavaScript">
-	function kakunin(frm) {
-		flag = confirm("本当に削除しますか?");
-		if (flag) {
-			//frm.submit();
-			alert("削除しました");
-			location.reload();
-		}
-	}
-</script>
+
 </head>
 <body>
 	<h1>顧客一覧</h1>
+	<h2>${deleted}</h2>
 	<div class="container">
 
 		<table id="example" class="display" cellspacing="0" width="100%">
@@ -68,48 +60,30 @@
 
 				<c:forEach var="obj" items="${cuslist}" varStatus="status">
 					<tr>
-					<td><c:out value="${obj.name}"></c:out></td>
-					<td><c:out value="${obj.address}"></c:out></td>
-					<td><c:out value="${obj.tel}"></c:out></td>
-					<td><form action="/Cust-id-connect/detail">
-					<input type="hidden" name="id" value='<c:out value="${obj.id}"></c:out>' />
-					<input type="submit" value="詳細">
-					</form>
-					</td>
-					<td><input type=button value="削除"
-						onclick="kakunin(this.form);return false"></td>
-					<td><form action="/Cust-id-connect/update">
-					<input type="hidden" name="id" value='<c:out value="${obj.id}"></c:out>' />
-					<input type="submit" value="更新">
-					</form>
-					</td>
+						<td><c:out value="${obj.name}"></c:out></td>
+						<td><c:out value="${obj.address}"></c:out></td>
+						<td><c:out value="${obj.tel}"></c:out></td>
+						<td><form action="/Cust-id-connect/detail">
+								<input type="hidden" name="id"
+									value='<c:out value="${obj.id}"></c:out>' /> <input
+									type="submit" value="詳細">
+							</form></td>
+						<td>
+							<form action="/Cust-id-connect/list" method=post>
+								<input type="hidden" name="id"
+									value='<c:out value="${obj.id}"></c:out>' /> <input
+									type=submit value="削除" >
+							</form>
+						</td>
+						<td><form action="/Cust-id-connect/update">
+								<input type="hidden" name="id"
+									value='<c:out value="${obj.id}"></c:out>' /> <input
+									type="submit" value="更新">
+							</form></td>
 					</tr>
 				</c:forEach>
 
-				<!-- <tr>
 
-					<td>テスト さん</td>
-					<td>埼玉県</td>
-					<td>0120-117-117</td>
-					<td><a href="/Cust-id-connect/detail"><input type=button
-							value="詳細"></a></td>
-					<td><input type=button value="削除"
-						onclick="kakunin(this.form);return false"></td>
-					<td><a href="/Cust-id-connect/update"><input type=button
-							value="更新"></a></td>
-
-				</tr>
-				<tr>
-					<td>テスト２ さん</td>
-					<td>鳥取県</td>
-					<td>0120-828-828</td>
-					<td><a href="/Cust-id-connect/detail"><input type=button
-							value="詳細"></a></td>
-					<td><input type=button value="削除"
-						onclick="kakunin(this.form);return false"></td>
-					<td><a href="/Cust-id-connect/update"><input type=button
-							value="更新"></a></td>
-				</tr> -->
 			</tbody>
 		</table>
 		<a href="/Cust-id-connect/top"><input type=button value="トップ画面に戻る"></a>
