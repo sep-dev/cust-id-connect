@@ -60,27 +60,33 @@
 
 				<c:forEach var="obj" items="${cardlist}" varStatus="status">
 					<tr>
-					<td><c:out value="${obj.cardnumber}"></c:out></td>
-					<td><c:out value="${obj.point}P"></c:out></td>
-					<td><c:out value="${obj.sumpoint}P"></c:out></td>
-					<td>"S{obj.name}"</td>
-					<td><form action="/Cust-id-connect/detail">
-					<% //ここのidをcusidに直す %>
-					<input type="hidden" name="id" value='<c:out value="${obj.id}"></c:out>' />
-					<input type="submit" value="詳細">
-					</form>
-					<td>
+						<td><c:out value="${obj.cardnumber}"></c:out></td>
+						<td><c:out value="${obj.point}P"></c:out></td>
+						<td><c:out value="${obj.sumpoint}P"></c:out></td>
+						<td>"S{obj.name}"</td>
+						<td><form action="/Cust-id-connect/detail">
+								<%
+								    //ここのidをcusidに直す
+								%>
+								<input type="hidden" name="id"
+									value='<c:out value="${obj.id}"></c:out>' /> <input
+									type="submit" value="詳細">
+							</form>
+						<td>
 							<form action="/Cust-id-connect/cardlist" method=post>
 								<input type="hidden" name="id"
 									value='<c:out value="${obj.id}"></c:out>' /> <input
-									type=submit value="削除" >
+									type="submit" value="削除"
+									onclick="return confirm('削除しても良いですか？')">
 							</form>
-					<td><form action="/Cust-id-connect/update">
-					<% //ここのidをcusidに直す %>
-					<input type="hidden" name="id" value='<c:out value="${obj.id}"></c:out>' />
-					<input type="submit" value="更新">
-					</form>
-					</td>
+						<td><form action="/Cust-id-connect/update">
+								<%
+								    //ここのidをcusidに直す
+								%>
+								<input type="hidden" name="id"
+									value='<c:out value="${obj.id}"></c:out>' /> <input
+									type="submit" value="更新">
+							</form></td>
 					</tr>
 				</c:forEach>
 

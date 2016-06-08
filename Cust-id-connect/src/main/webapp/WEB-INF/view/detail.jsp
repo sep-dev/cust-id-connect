@@ -119,7 +119,7 @@
 							<form action="/Cust-id-connect/detail" method=post>
 								<input type="hidden" name="id"
 									value='<c:out value="${obj.id}"></c:out>' /> <input
-									type=submit name="delete"  value="削除" >
+									type=submit name="delete"  value="削除" onclick="return confirm('送信しても良いですか？')">
 							</form>
 					</tr>
 				</c:forEach>
