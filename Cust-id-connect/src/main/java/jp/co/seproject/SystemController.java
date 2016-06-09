@@ -137,15 +137,25 @@ public class SystemController {
     @RequestMapping(value = "/mail", method = RequestMethod.GET)
     public String mail(Model model) {
 		MailModel mm = new MailModel();
-		model.addAttribute("mail", mm);
+		model.addAttribute("mailModel", mm);
 
         return "mail";
     }
 
 	@RequestMapping(value = "/mail", method = RequestMethod.POST)
 	public String postmail(@ModelAttribute MailModel mm, Model model) {
+		Mailer m = new Mailer();
 
-		model.addAttribute("mail", mm);
+		String a = mm.getTo();
+		String b = mm.getSubject();
+		String c = mm.getHonbun();
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+
+		m.sendmail(a, b, c);
+
+
 
 		return "mail";
 	}

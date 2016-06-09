@@ -69,7 +69,7 @@
 								    //ここのidをcusidに直す
 								%>
 								<input type="hidden" name="id"
-									value='<c:out value="${obj.ids}"></c:out>' /> <input
+									value='<c:out value="${obj.cus}"></c:out>' /> <input
 									type="submit" value="詳細">
 							</form>
 						<td>
@@ -84,7 +84,7 @@
 								    //ここのidをcusidに直す
 								%>
 								<input type="hidden" name="id"
-									value='<c:out value="${obj.ids}"></c:out>' /> <input
+									value='<c:out value="${obj.cus}"></c:out>' /> <input
 									type="submit" value="更新">
 							</form></td>
 					</tr>

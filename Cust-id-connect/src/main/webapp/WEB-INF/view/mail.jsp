@@ -5,45 +5,33 @@
 <html>
 <head>
 <title>メール送信画面</title>
-<script type="text/javascript">
-	function reibun() {
-		alert("onchangetest")
 
-	}
-</script>
+
 
 
 </head>
 <body>
 	<h1>メール送信</h1>
-	<form:form modelAttribute = "mail">
+	<form:form modelAttribute = "mailModel">
 		<table>
 			<tr>
 				<td>宛先</td>
-				<td><form:select path = "bcc" required="required">
+				<td><form:select path = "to" required="required">
 						<option disabled selected>宛先を選択</option>
-						<option>全員</option>
-						<option>ランダム</option>
-						<option>プラチナ会員</option>
-						<option>その他</option>
-				</form:select> その他：<form:select path = "to" data-placeholder="宛先を選択" style="width: 350px;"
-					tabindex="2" disabled="true">
+						<option value = "tarou8503@gmail.com">全員</option>
+						<option value = "tarou8503@gmail.com">ランダム</option>
+						<option value = "tarou8503@gmail.com">プラチナ会員</option>
+						<option value = "tarou8503@gmail.com">その他</option>
+				</form:select> <%-- その他：<form:select path = "to" data-placeholder="宛先を選択" style="width: 350px;"
+					tabindex="2" >
 						<option value=""></option>
 						<option value="1">テスト さん</option>
 						<option value="2">テスト２ さん</option>
-				</form:select></td>
+				</form:select> --%></td>
 			</tr>
 
 
-			<tr>
-				<td>例文</td>
-				<td><select name="example" id ="doredesuka" onChange="reibun()">
-						<option disabled selected>例文を選択</option>
-						<option value="サンプル1">お知らせ</option>
-						<option value="サンプル2">すごいお知らせ</option>
-						<option value="サンプル3">ヤバイお知らせ</option>
-				</select></td>
-			</tr>
+
 			<tr></tr>
 			<tr>
 				<td>件名</td>
