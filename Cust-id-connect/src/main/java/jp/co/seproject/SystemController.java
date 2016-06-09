@@ -2,6 +2,9 @@ package jp.co.seproject;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
+
+import javax.mail.internet.AddressException;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -122,6 +125,9 @@ public class SystemController {
         model.addAttribute("cardlist", list);
 		CardData cd = new CardData();
         model.addAttribute("cardData", cd);
+		SystemDao<CustomerData> daocus = new SystemDaoImpl();
+		List<CustomerData> listcus = daocus.getAll();
+		model.addAttribute("cuslist", listcus);
         return "cardlist";
     }
 
@@ -143,21 +149,38 @@ public class SystemController {
     }
 
 	@RequestMapping(value = "/mail", method = RequestMethod.POST)
-	public String postmail(@ModelAttribute MailModel mm, Model model) {
+	public String postmail(@ModelAttribute MailModel mm, Model model) throws AddressException {
 		Mailer m = new Mailer();
+		SystemDaoImpl dao = new SystemDaoImpl();
+		List<CardData> list = dao.getMailaddressall();
+		String[] Stringarray = (String[]) list.toArray(new String[0]);
 
-		String a = mm.getTo();
-		String b = mm.getSubject();
-		String c = mm.getHonbun();
-		System.out.println(a);
-		System.out.println(b);
-		System.out.println(c);
+		String subject = mm.getSubject();
+		String honbun = mm.getHonbun();
+		switch (mm.getTo()) {
+		case "all":
+		for (int i = 0; i < Stringarray.length; i++) {
+			String aaa = Stringarray[i];
 
-		m.sendmail(a, b, c);
+			if (aaa.equals("")) {
+				continue;
+			} else {
 
+			m.sendmail(aaa, subject, honbun);
+			System.out.println(Stringarray[i]);
+			}
+		}
+		break;
+		case "random":
+			int fuck = new Random().nextInt(Stringarray.length);
+			m.sendmail(Stringarray[fuck], subject, honbun);
+			System.out.println(fuck);
+			break;
 
+		case "gomi":
 
-		return "mail";
+		}
+		return "redirect:/mail";
 	}
 }
 

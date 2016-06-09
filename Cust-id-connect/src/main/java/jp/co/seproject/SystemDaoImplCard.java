@@ -21,6 +21,8 @@ public class SystemDaoImplCard implements SystemDao<CardData> {
         manager.close();
         return list;
     }
+
+
     //検索
     public CardData findById(int id){
         EntityManager manager = factory.createEntityManager();

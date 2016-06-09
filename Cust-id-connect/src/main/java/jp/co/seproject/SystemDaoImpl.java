@@ -29,6 +29,16 @@ public class SystemDaoImpl implements SystemDao<CustomerData> {
 	    return (CustomerData)manager.createQuery("from CustomerData where id = "+id).getSingleResult();
 	}
 
+	// メアド全部
+	public List<CardData> getMailaddressall() {
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNativeQuery("select mailaddress from tbcus ");
+		@SuppressWarnings("unchecked")
+		List<CardData> list = query.getResultList();
+		manager.close();
+		return list;
+	}
+
 	//登録
 	public void add(CustomerData customerdata) {
 		EntityManager manager = factory.createEntityManager();

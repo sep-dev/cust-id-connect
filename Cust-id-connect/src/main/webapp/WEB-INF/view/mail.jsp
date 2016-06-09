@@ -5,29 +5,31 @@
 <html>
 <head>
 <title>メール送信画面</title>
+<script>
+function fuck(){
+	selindex = document.forms.kanzakiharia.kyurukefontwerupusuto.selectIndex
+	if(selindex = 0){
+		alert("宛先を設定してくだしあ")
+	}}
 
+</script>
 
 
 
 </head>
 <body>
 	<h1>メール送信</h1>
-	<form:form modelAttribute = "mailModel">
+	<form:form modelAttribute = "mailModel" id = "kanzakiharia">
 		<table>
 			<tr>
 				<td>宛先</td>
-				<td><form:select path = "to" required="required">
-						<option disabled selected>宛先を選択</option>
-						<option value = "tarou8503@gmail.com">全員</option>
-						<option value = "tarou8503@gmail.com">ランダム</option>
-						<option value = "tarou8503@gmail.com">プラチナ会員</option>
-						<option value = "tarou8503@gmail.com">その他</option>
-				</form:select> <%-- その他：<form:select path = "to" data-placeholder="宛先を選択" style="width: 350px;"
-					tabindex="2" >
-						<option value=""></option>
-						<option value="1">テスト さん</option>
-						<option value="2">テスト２ さん</option>
-				</form:select> --%></td>
+				<td><form:select path = "to" id = "kyurukefontwerupusuto" required="required">
+						<!-- <option value = "gomi" disabled selected>宛先を選択</option> -->
+						<option value = "all">全員</option>
+						<option value = "random">ランダム</option>
+						<!-- <option value = "tarou8503@gmail.com">プラチナ会員</option> 誕生月とか実装予定-->
+						<!-- <option value = "tarou8503@gmail.com">その他</option>ひとまずスルー -->
+				</form:select></td>
 			</tr>
 
 
@@ -45,7 +47,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" value="送信する" /></td>
+				<td><input type="submit" value="送信する" onclick="return confirm('送信しても良いですか？')"/></td>
 			</tr>
 			<tr>
 				<td></td>

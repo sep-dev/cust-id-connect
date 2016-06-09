@@ -83,7 +83,7 @@
 			<td></td>
 			<td align=justify>誕生月</td>
 			<td>:</td>
-			<td>${iddata.birth}</td>
+			<td>${iddata.birth}月</td>
 		</tr>
 		<tr>
 			<td></td>

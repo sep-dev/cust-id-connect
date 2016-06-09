@@ -63,10 +63,15 @@
 						<td><c:out value="${obj.cardnumber}"></c:out></td>
 						<td><c:out value="${obj.point}P"></c:out></td>
 
-						<td>"{obj.name}"</td>
+						<td><c:forEach var="objcus" items="${cuslist}"
+								varStatus="status">
+								<c:if test="${obj.cus==objcus.id}">
+									<c:out value="${objcus.name}"></c:out>
+								</c:if>
+							</c:forEach></td>
 						<td><form action="/Cust-id-connect/detail">
 								<%
-								    //ここのidをcusidに直す
+									//ここのidをcusidに直す
 								%>
 								<input type="hidden" name="id"
 									value='<c:out value="${obj.cus}"></c:out>' /> <input
@@ -81,7 +86,7 @@
 							</form>
 						<td><form action="/Cust-id-connect/update">
 								<%
-								    //ここのidをcusidに直す
+									//ここのidをcusidに直す
 								%>
 								<input type="hidden" name="id"
 									value='<c:out value="${obj.cus}"></c:out>' /> <input
