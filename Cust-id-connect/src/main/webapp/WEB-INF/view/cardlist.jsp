@@ -90,26 +90,7 @@
 					</tr>
 				</c:forEach>
 
-				<!-- <tr>
-					<td>00002</td>
-					<td>2P</td>
-					<td>2P</td>
-					<td>テスト２ さん</td>
-					<td><a href="/Cust-id-connect/detail"><input type=button value="詳細"></a></td>
-					<td><input type=button value="削除"
-						onclick="kakunin(this.form);return false"></td>
-					<td><a href="/Cust-id-connect/update"><input type=button value="更新"></a></td>
-				</tr>
-				<tr>
-					<td>00004</td>
-					<td>10000P</td>
-					<td>10000P</td>
-					<td>テスト さん</td>
-					<td><a href="/Cust-id-connect/detail"><input type=button value="詳細"></a></td>
-					<td><input type=button value="削除"
-						onclick="kakunin(this.form);return false"></td>
-					<td><a href="/Cust-id-connect/update"><input type=button value="更新"></a></td>
-				</tr> -->
+
 			</tbody>
 		</table>
 		<a href="/Cust-id-connect/top"><input type=button value="トップ画面に戻る"></a>

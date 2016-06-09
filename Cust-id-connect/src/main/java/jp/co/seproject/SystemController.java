@@ -87,6 +87,7 @@ public class SystemController {
 		model.addAttribute("cardlist", list);
         CardData cd = new CardData();
 
+
         model.addAttribute("iddata", iddata);
 		model.addAttribute("cardData", cd);
 
@@ -97,10 +98,7 @@ public class SystemController {
 	public String postdetailadd(@ModelAttribute CardData cd, Model model) {
 		SystemDao<CardData> dao = new SystemDaoImplCard();
 
-		System.out.println("cus=" + cd.getCus());
-		System.out.println(cd.getCardnumber());
-		System.out.println("id=" + cd.getIds());
-		System.out.println(cd.getPoint());
+
 
 		dao.add(cd);
 
@@ -138,7 +136,18 @@ public class SystemController {
 
     @RequestMapping(value = "/mail", method = RequestMethod.GET)
     public String mail(Model model) {
+		MailModel mm = new MailModel();
+		model.addAttribute("mail", mm);
+
         return "mail";
     }
+
+	@RequestMapping(value = "/mail", method = RequestMethod.POST)
+	public String postmail(@ModelAttribute MailModel mm, Model model) {
+
+		model.addAttribute("mail", mm);
+
+		return "mail";
+	}
 }
 

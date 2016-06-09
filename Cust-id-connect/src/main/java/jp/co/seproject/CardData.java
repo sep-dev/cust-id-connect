@@ -17,10 +17,10 @@ public class CardData {
 	private int ids;
 
 	@Column(length=40,nullable=false)
-	private int cardnumber;
+	private String cardnumber;
 
 	@Column(length=40,nullable=false)
-	private int point;
+	private String point;
 
 	@Column(length=40,nullable=false)
 	private int cus;
@@ -33,21 +33,7 @@ public class CardData {
 		this.ids = ids;
 	}
 
-	public int getCardnumber() {
-		return cardnumber;
-	}
 
-	public void setCardnumber(int cardnumber) {
-		this.cardnumber = cardnumber;
-	}
-
-	public int getPoint() {
-		return point;
-	}
-
-	public void setPoint(int point) {
-		this.point = point;
-	}
 
 
 
@@ -57,5 +43,21 @@ public class CardData {
 
 	public void setCus(int cus) {
 		this.cus = cus;
+	}
+
+	public void setCardnumber(String cardnumber) {
+		this.cardnumber = cardnumber;
+	}
+
+	public void setPoint(String point) {
+		this.point = point;
+	}
+
+	public String getCardnumber() {
+		return cardnumber;
+	}
+
+	public String getPoint() {
+		return point;
 	}
 }

@@ -28,5 +28,7 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/matunuma/Downloads/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/matunuma/Downloads/jaf-1_1_1/jaf-1.1.1/activation.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
