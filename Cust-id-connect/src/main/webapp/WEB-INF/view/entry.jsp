@@ -52,7 +52,8 @@
 
 			<tr>
 				<td>メールアドレス</td>
-				<td><form:input path="mailaddress" placeholder="ここにメールアドレスを入力" size="50" /></td>
+				<td><form:input path="mailaddress" placeholder="ここにメールアドレスを入力" size="50"
+				pattern="^[-a-z_@.]{5,1000}$"/></td>
 			</tr>
 			<tr>
 				<td>誕生月</td>

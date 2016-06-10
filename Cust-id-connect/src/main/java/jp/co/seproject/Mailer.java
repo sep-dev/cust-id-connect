@@ -31,7 +31,7 @@ public class Mailer {
 			// MimeMessageの取得と設定
 			Message msg = new MimeMessage(session);
 			// 送信者設定
-			msg.setFrom(new InternetAddress("tarou8503@gmail.com"));
+			msg.setFrom(new InternetAddress("testtest@gmail.com"));
 			// 宛先設定
 			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to, false));
 			/* msg.setRecipients(Message.RecipientType.BCC, to); */
