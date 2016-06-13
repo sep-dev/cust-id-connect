@@ -10,7 +10,16 @@
 
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
+<style type="text/css">
 
+body {
+background-color:#aaffff;
+color: 	#ff80bf;
+}
+.container{
+background-color:	#d5ffff;
+}
+</style>
 <script type="text/javascript"
 	src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
 <script type="text/javascript" charset="utf-8">
@@ -127,30 +136,32 @@
 
 						<td>
 							<form action="/Cust-id-connect/detail" method=post>
-								<input type="hidden" name="cardid" value='<c:out value="${obj.ids}"></c:out>' />
-								<input type="hidden" name="cusid" value='<c:out value="${obj.cus}"></c:out>'/>
-								<input type=submit name="delete" value="削除" onclick="return confirm('削除しても良いですか？')">
+								<input type="hidden" name="cardid"
+									value='<c:out value="${obj.ids}"></c:out>' /> <input
+									type="hidden" name="cusid"
+									value='<c:out value="${obj.cus}"></c:out>' /> <input
+									type=submit name="delete" value="削除"
+									onclick="return confirm('削除しても良いですか？')">
 							</form>
 					</tr>
 				</c:forEach>
 
 			</tbody>
 		</table>
-		<br>
+		<table>
+		<tr><td><FONT color="pink">${fuck}</FONT></td></tr>
 		<form:form modelAttribute="cardData">
-
-
-			<form:input path="cardnumber" placeholder="カードIDを入力" size="50" />
-			<form:input path="point" placeholder="現ポイントを入力" size="50" />
+			<tr><td><form:input path="cardnumber" placeholder="カードIDを入力" size="50" />　</td>
+			<td><form:input path="point" placeholder="現ポイントを入力" size="50" />　</td>
 			<form:hidden path="cus" value="${iddata.id}" />
-			<input type="submit" name="add" value="登録" />
+			<td><input type="submit" name="add" value="登録" /></td></tr>
 
-			<br>
-			<br>
+			<tr><td>　</td></tr>
 		</form:form>
-		<br> <a href="/Cust-id-connect/list"><input type=button
-			value="一覧画面に戻る"></a> <a href="/Cust-id-connect/top"><input
-			type=button value="トップ画面に戻る"></a>
+		<tr><td><a href="/Cust-id-connect/list"><input type=button
+			value="一覧画面に戻る"></a></td><td> <a href="/Cust-id-connect/top"><input
+			type=button value="トップ画面に戻る"></a></td>
+			</tr></table>
 	</div>
 
 	<script type="text/javascript">

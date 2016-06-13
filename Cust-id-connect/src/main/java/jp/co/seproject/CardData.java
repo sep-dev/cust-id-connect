@@ -6,9 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Pattern;
 
 @Entity
-@Table(name="tbcard")
+@Table(name = "tbcard", uniqueConstraints = { @UniqueConstraint(columnNames = { "cardnumber" }) })
 public class CardData {
 
 	@Id
@@ -16,13 +18,15 @@ public class CardData {
 	@Column
 	private int ids;
 
-	@Column(length=40,nullable=false)
+	@Column(length = 40, nullable = false, unique = true)
+	@Pattern(regexp = "^[1-9][0-9]{2,4}$")
 	private String cardnumber;
 
-	@Column(length=40,nullable=false)
+	@Pattern(regexp = "^[1-9][0-9]+$|0")
+	@Column(length = 40, nullable = false)
 	private String point;
 
-	@Column(length=40,nullable=false)
+	@Column(length = 40, nullable = false)
 	private int cus;
 
 	public int getIds() {
@@ -32,10 +36,6 @@ public class CardData {
 	public void setIds(int ids) {
 		this.ids = ids;
 	}
-
-
-
-
 
 	public int getCus() {
 		return cus;
