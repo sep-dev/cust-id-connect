@@ -23,12 +23,11 @@ public class CardData {
 	@Pattern(regexp = "^[1-9][0-9]{2,4}$")
 	private String cardnumber;
 
-	/* @Pattern(regexp = "^[1-9][0-9]+$|0") */
+	@Pattern(regexp = "^[1-9][0-9]+$|0")
 	@Column(length = 40, nullable = false)
 	private String point;
 
-	@Column(length = 40, nullable = false)
-	private int cus;
+
 
 	@ManyToOne
 	private CustomerData customerdata;
@@ -41,13 +40,6 @@ public class CardData {
 		this.ids = ids;
 	}
 
-	public int getCus() {
-		return cus;
-	}
-
-	public void setCus(int cus) {
-		this.cus = cus;
-	}
 
 	public void setCardnumber(String cardnumber) {
 		this.cardnumber = cardnumber;
