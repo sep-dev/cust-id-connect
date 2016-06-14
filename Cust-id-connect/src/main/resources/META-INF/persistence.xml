@@ -13,7 +13,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/customerid" />
 			<property name="hibernate.connection.username" value="root"/>
-			<property name="hibernate.connection.password" value="qwerty"/>
+			<property name="hibernate.connection.password" value="mypenntoki2313S9L"/>
 			<property name="hibernate.show_sql" value="true" />
 		</properties>
 
