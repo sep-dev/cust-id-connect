@@ -1,12 +1,14 @@
 package jp.co.seproject;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +31,9 @@ public class CustomerData implements Serializable{
 	private String gender;
 	@Column
 	private String birth;
+
+	@OneToMany(mappedBy = "customerdata")
+	private List<CardData> cardlist;
 
 	public int getId() {
 		return id;
@@ -74,5 +79,12 @@ public class CustomerData implements Serializable{
 		this.birth = birth;
 	}
 
+	public List<CardData> getCardlist() {
+		return cardlist;
+	}
+
+	public void setCardlist(List<CardData> cardlist) {
+		this.cardlist = cardlist;
+	}
 
 }

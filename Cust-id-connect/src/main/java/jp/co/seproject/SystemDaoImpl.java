@@ -12,7 +12,7 @@ public class SystemDaoImpl implements SystemDao<CustomerData> {
 	private static final long serialVersionUID = 1L;
 	private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistenceUnit");
 
-	//全件表示
+	// 全件表示
 	public List<CustomerData> getAll() {
 		EntityManager manager = factory.createEntityManager();
 		Query query = manager.createQuery("from CustomerData");
@@ -23,10 +23,10 @@ public class SystemDaoImpl implements SystemDao<CustomerData> {
 
 	}
 
-	//検索
-	public CustomerData findById(int id){
-	    EntityManager manager = factory.createEntityManager();
-	    return (CustomerData)manager.createQuery("from CustomerData where id = "+id).getSingleResult();
+	// 検索
+	public CustomerData findById(Long l) {
+		EntityManager manager = factory.createEntityManager();
+		return (CustomerData) manager.createQuery("from CustomerData where id = " + l).getSingleResult();
 	}
 
 	// メアド全部
@@ -39,7 +39,7 @@ public class SystemDaoImpl implements SystemDao<CustomerData> {
 		return list;
 	}
 
-	//登録
+	// 登録
 	public void add(CustomerData customerdata) {
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
@@ -49,28 +49,37 @@ public class SystemDaoImpl implements SystemDao<CustomerData> {
 		manager.close();
 	}
 
-	//更新
+	// 更新
 	public void update(CustomerData customerdata) {
-        EntityManager manager = factory.createEntityManager();
-        EntityTransaction transaction = manager.getTransaction();
-        transaction.begin();
-        manager.merge(customerdata);
-        transaction.commit();
-        manager.close();
-    }
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		transaction.begin();
+		manager.merge(customerdata);
+		transaction.commit();
+		manager.close();
+	}
 
-	//削除
-	public void delete(int id){
-	    delete(findById(id));
+	// 削除
+	public void delete(int id) {
+		delete(findById(id));
 	}
 
 	public void delete(CustomerData customerdata) {
-        EntityManager manager = factory.createEntityManager();
-        EntityTransaction transaction = manager.getTransaction();
-        transaction.begin();
-        CustomerData delete = manager.merge(customerdata);
-        manager.remove(delete);
-        transaction.commit();
-        manager.close();
-    }
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		transaction.begin();
+		CustomerData delete = manager.merge(customerdata);
+		manager.remove(delete);
+		transaction.commit();
+		manager.close();
+	}
+
+	@Override
+	public CustomerData findById(int id) {
+
+		EntityManager manager = factory.createEntityManager();
+		return (CustomerData) manager.createQuery("from CustomerData where id = " + id).getSingleResult();
+
+	}
+
 }

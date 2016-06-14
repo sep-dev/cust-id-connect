@@ -38,9 +38,45 @@
 		});
 	});
 </script>
+<style type="text/css">
+body {
+	background-color: #FFE4C4;
+	color: black;
+}
+.container{
+border-top: 5px solid #C00;
+	border-left: 5px solid #09C;
+	border-right: 5px solid #9C0;
+	border-bottom: 5px solid #FC0;;
+}
+
+.btn {
+	width:160px;
+    font-size:20px;
+    font-weight:bold;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+    padding:5px 0 5px;
+    color:#fff;
+    background-color:#49a9d4;
+    border-radius:5px;
+    box-shadow:2px 2px #1a6ea0;
+}
+
+.title2 {
+	background: #0000ff;
+	border: 1px solid #DDD;
+	color: white;
+	text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 1px rgba(0, 0, 0, 0.5);
+	width:100%;
+
+padding: 10px 0;
+}
+</style>
 </head>
 <body>
-	<h1>カード一覧</h1>
+	<h1 class="title2">カード一覧</h1>
 
 	<div class="container">
 
@@ -58,27 +94,26 @@
 			</thead>
 			<tbody>
 
-				<c:forEach var="obj" items="${cardlist}" varStatus="status">
+				<c:forEach var="i" items="${cardlist}">
 					<tr>
-						<td><c:out value="${obj.cardnumber}"></c:out></td>
-						<td><c:out value="${obj.point}P"></c:out></td>
+						<td><c:out value="${i.cardnumber}"></c:out></td>
+						<td><c:out value="${i.point}P"></c:out></td>
 
-						<td><c:forEach var="objcus" items="${cuslist}"
-								varStatus="status">
-								<c:if test="${obj.cus==objcus.id}">
-									<c:out value="${objcus.name}"></c:out>
-								</c:if>
-							</c:forEach></td>
+						<td>
+
+									<c:out value="${tbcus.name}"></c:out>
+
+							</td>
 						<td><form action="/Cust-id-connect/detail">
 								<%
 									//ここのidをcusidに直す
 								%>
 								<input type="hidden" name="id"
-									value='<c:out value="${obj.cus}"></c:out>' /> <input
-									type="submit" value="詳細">
+									value='<c:out value="${obj.cus}"></c:out>' /><c:if test="${obj.cus==objcus.id}"> <input
+									type="submit" value="詳細"></c:if>
 							</form>
 						<td>
-							<form action="/Cust-id-connect/cardlist" method=post>
+							<form  action="/Cust-id-connect/cardlist" method=post>
 								<input type="hidden" name="id"
 									value='<c:out value="${obj.ids}"></c:out>' /> <input
 									type="submit" value="削除"
@@ -89,8 +124,8 @@
 									//ここのidをcusidに直す
 								%>
 								<input type="hidden" name="id"
-									value='<c:out value="${obj.cus}"></c:out>' /> <input
-									type="submit" value="更新">
+									value='<c:out value="${obj.cus}"></c:out>' /><c:if test="${obj.cus==objcus.id}"> <input
+									type="submit" value="更新"></c:if>
 							</form></td>
 					</tr>
 				</c:forEach>
@@ -98,7 +133,7 @@
 
 			</tbody>
 		</table>
-		<a href="/Cust-id-connect/top"><input type=button value="トップ画面に戻る"></a>
+		<a class="btn"href="/Cust-id-connect/top">トップ画面に戻る</a>
 
 	</div>
 

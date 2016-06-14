@@ -8,7 +8,7 @@ public interface SystemDao<T> extends Serializable {
     //CustamerData
 	public List<T> getAll();
 
-	public T findById(int id);
+	public T findById(Long l);
 
 	public void add(T data);
 
@@ -17,6 +17,8 @@ public interface SystemDao<T> extends Serializable {
     public void delete(int id);
 
     public void delete(T data);
+
+	public T findById(int id);
 
    /* //CardData
     public List<CardData> getCardAll();

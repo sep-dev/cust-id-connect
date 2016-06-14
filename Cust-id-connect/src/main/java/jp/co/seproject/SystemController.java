@@ -5,12 +5,15 @@ import java.util.Locale;
 import java.util.Random;
 
 import javax.mail.internet.AddressException;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,11 +22,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class SystemController {
 
-
+	// 例外すべてエラー画面に投げる設定 基本的にカードナンバー被りのエラーのみ考慮
 	@ExceptionHandler(Throwable.class)
 	public String ThrowableHandler() {
 
 		return "error";
+	}
+
+	// プロパティエディター
+	@InitBinder
+	protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception {
+		binder.registerCustomEditor(CustomerData.class, new CCPropertyEditor());
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -126,7 +135,7 @@ public class SystemController {
 			model.addAttribute("iddata", iddata);
 			model.addAttribute("cardData", cd2);
 
-			model.addAttribute("fuck", "正しいカードナンバーを入力してください♡");
+			model.addAttribute("fuck", "カードナンバーとポイントを確認してください♡");
 			return "detail";
 		} else {
 			SystemDaoImplCard dao = new SystemDaoImplCard();
@@ -134,7 +143,8 @@ public class SystemController {
 			dao.add(cd);
 		}
 
-		return "redirect:/detail?id=" + cd.getCus();
+
+		return "redirect:/detail?id=" + cd.getCustomerdata().getId();
 	}
 
 	@RequestMapping(value = "/detail", params = "delete", method = RequestMethod.POST)
@@ -149,14 +159,16 @@ public class SystemController {
 
 	@RequestMapping(value = "/cardlist", method = RequestMethod.GET)
 	public String cardlist(Model model) {
-		SystemDao<CardData> dao = new SystemDaoImplCard();
-		List<CardData> list = dao.getAll();
+		SystemDaoImplCard dao = new SystemDaoImplCard();
+		List<CardData> list = dao.joinjoin();
 		model.addAttribute("cardlist", list);
 		CardData cd = new CardData();
 		model.addAttribute("cardData", cd);
-		SystemDao<CustomerData> daocus = new SystemDaoImpl();
-		List<CustomerData> listcus = daocus.getAll();
-		model.addAttribute("cuslist", listcus);
+		/*
+		 * SystemDao<CustomerData> daocus = new SystemDaoImpl();
+		 * List<CustomerData> listcus = daocus.getAll();
+		 * model.addAttribute("cuslist", listcus);
+		 */
 		return "cardlist";
 	}
 
@@ -178,6 +190,7 @@ public class SystemController {
 
 	@RequestMapping(value = "/mail", method = RequestMethod.POST)
 	public String postmail(@ModelAttribute MailModel mm, Model model) throws AddressException {
+
 		Mailer m = new Mailer();
 		SystemDaoImpl dao = new SystemDaoImpl();
 		List<CardData> list = dao.getMailaddressall();
@@ -199,6 +212,7 @@ public class SystemController {
 				}
 			}
 			break;
+		// ランダム1件の送信
 		case "random":
 			int fuck = new Random().nextInt(Stringarray.length);
 			m.sendmail(Stringarray[fuck], subject, honbun);

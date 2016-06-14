@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Pattern;
@@ -28,6 +29,9 @@ public class CardData {
 
 	@Column(length = 40, nullable = false)
 	private int cus;
+
+	@ManyToOne
+	private CustomerData customerdata;
 
 	public int getIds() {
 		return ids;
@@ -59,5 +63,13 @@ public class CardData {
 
 	public String getPoint() {
 		return point;
+	}
+
+	public CustomerData getCustomerdata() {
+		return customerdata;
+	}
+
+	public void setCustomerdata(CustomerData customerdata) {
+		this.customerdata = customerdata;
 	}
 }
