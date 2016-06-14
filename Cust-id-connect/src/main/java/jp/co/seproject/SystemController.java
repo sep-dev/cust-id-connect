@@ -114,8 +114,9 @@ public class SystemController {
 		// ここまでおｋ
 		List<CardData> list = daocard.findByCusId(id);
 
-		model.addAttribute("cardlist", list);
 		CardData cd = new CardData();
+		model.addAttribute("cardlist", list);
+		model.addAttribute("command", cd);
 
 		model.addAttribute("iddata", iddata);
 		model.addAttribute("cardData", cd);
@@ -160,6 +161,15 @@ public class SystemController {
 
 		dao.delete(cardid);
 
+		return "redirect:/detail?id=" + cus;
+	}
+
+	@RequestMapping(value = "/detail", params = "fuck", method = RequestMethod.POST)
+	public String postdetailpoint(@RequestParam int cardid, @RequestParam("cusid") int cus, @ModelAttribute CardData cd,
+			Model model) {
+		SystemDaoImplCard dao = new SystemDaoImplCard();
+
+		dao.update(cd);
 		return "redirect:/detail?id=" + cus;
 	}
 

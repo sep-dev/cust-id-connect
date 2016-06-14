@@ -130,11 +130,16 @@ body {
 			</thead>
 			<tbody>
 				<c:forEach var="obj" items="${cardlist}" varStatus="status">
-					<tr>
+					<tr><form:form >
 						<td><c:out value="${obj.cardnumber}"></c:out></td>
-						<td><c:out value="${obj.point}P"></c:out></td>
+						<td><form:input path="point" value="${obj.point}" style="border:none;"/>P</td>
+					 	<form:hidden path ="cardnumber" value="${obj.cardnumber}"/>
+						<form:hidden path ="ids" value="${obj.ids}"/>
+						<form:hidden path ="customerdata" value="${obj.customerdata.id}"/>
+
 
 						<td>
+						<input type="submit" name="fuck" value ="更新" onclick="return confirm('ポイント変更しても良いですか？ダメですか？')">
 							<form action="/Cust-id-connect/detail" method=post>
 								<input type="hidden" name="cardid"
 									value='<c:out value="${obj.ids}"></c:out>' /> <input
@@ -143,7 +148,7 @@ body {
 									type=submit name="delete" value="削除"
 									onclick="return confirm('削除しても良いですか？')">
 							</form>
-					</tr>
+					</form:form></tr>
 				</c:forEach>
 
 			</tbody>

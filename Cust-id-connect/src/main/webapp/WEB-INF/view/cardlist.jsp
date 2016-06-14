@@ -96,8 +96,8 @@ padding: 10px 0;
 
 				<c:forEach var="obj" items="${cardlist}">
 					<tr>
-						<td><c:out value="${obj.cardnumber}"></c:out></td>
-						<td><c:out value="${obj.point}P"></c:out></td>
+						<td><c:out value="${obj.cardnumber}"/></td>
+						<td><c:out value="${obj.point}P"/></td>
 
 						<td>
 

@@ -112,4 +112,5 @@ public class SystemDaoImplCard implements SystemDao<CardData> {
 	}
 
 
+
 }
