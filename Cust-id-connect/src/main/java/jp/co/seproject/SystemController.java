@@ -26,7 +26,7 @@ public class SystemController {
 	@ExceptionHandler(javax.persistence.RollbackException.class)
 	public String rollbackHandler() {
 
-		return "error2";
+		return "carderror";
 	}
 
 	@ExceptionHandler(javax.persistence.PersistenceException.class)
