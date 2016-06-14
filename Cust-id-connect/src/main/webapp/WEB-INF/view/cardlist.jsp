@@ -94,14 +94,14 @@ padding: 10px 0;
 			</thead>
 			<tbody>
 
-				<c:forEach var="i" items="${cardlist}">
+				<c:forEach var="obj" items="${cardlist}">
 					<tr>
-						<td><c:out value="${i.cardnumber}"></c:out></td>
-						<td><c:out value="${i.point}P"></c:out></td>
+						<td><c:out value="${obj.cardnumber}"></c:out></td>
+						<td><c:out value="${obj.point}P"></c:out></td>
 
 						<td>
 
-									<c:out value="${tbcus.name}"></c:out>
+									<c:out value="${obj.customerdata.name}"></c:out>
 
 							</td>
 						<td><form action="/Cust-id-connect/detail">
@@ -109,8 +109,8 @@ padding: 10px 0;
 									//ここのidをcusidに直す
 								%>
 								<input type="hidden" name="id"
-									value='<c:out value="${obj.cus}"></c:out>' /><c:if test="${obj.cus==objcus.id}"> <input
-									type="submit" value="詳細"></c:if>
+									value='<c:out value="${obj.customerdata.id}"></c:out>' /><input
+									type="submit" value="詳細">
 							</form>
 						<td>
 							<form  action="/Cust-id-connect/cardlist" method=post>
@@ -124,8 +124,8 @@ padding: 10px 0;
 									//ここのidをcusidに直す
 								%>
 								<input type="hidden" name="id"
-									value='<c:out value="${obj.cus}"></c:out>' /><c:if test="${obj.cus==objcus.id}"> <input
-									type="submit" value="更新"></c:if>
+									value='<c:out value="${obj.customerdata.id}"></c:out>' /> <input
+									type="submit" value="更新">
 							</form></td>
 					</tr>
 				</c:forEach>

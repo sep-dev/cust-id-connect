@@ -22,9 +22,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class SystemController {
 
-	// 例外すべてエラー画面に投げる設定 基本的にカードナンバー被りのエラーのみ考慮
-	@ExceptionHandler(Throwable.class)
-	public String ThrowableHandler() {
+
+	@ExceptionHandler(javax.persistence.RollbackException.class)
+	public String rollbackHandler() {
+
+		return "error2";
+	}
+
+	@ExceptionHandler(javax.persistence.PersistenceException.class)
+	public String persistenceHandler() {
 
 		return "error";
 	}
@@ -160,7 +166,7 @@ public class SystemController {
 	@RequestMapping(value = "/cardlist", method = RequestMethod.GET)
 	public String cardlist(Model model) {
 		SystemDaoImplCard dao = new SystemDaoImplCard();
-		List<CardData> list = dao.joinjoin();
+		List<CardData> list = dao.getAll();
 		model.addAttribute("cardlist", list);
 		CardData cd = new CardData();
 		model.addAttribute("cardData", cd);
