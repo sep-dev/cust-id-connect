@@ -38,41 +38,17 @@
 		});
 	});
 </script>
-<style type="text/css">
-body {
-	background-color: #FFE4C4;
-	color: black;
-}
-.container{
-border-top: 5px solid #C00;
-	border-left: 5px solid #09C;
-	border-right: 5px solid #9C0;
-	border-bottom: 5px solid #FC0;;
-}
+ <style type="text/css">
 
 .btn {
-	width:160px;
-    font-size:20px;
-    font-weight:bold;
-    text-decoration:none;
-    display:block;
-    text-align:center;
-    padding:5px 0 5px;
-    color:#fff;
-    background-color:#49a9d4;
-    border-radius:5px;
-    box-shadow:2px 2px #1a6ea0;
+
+padding :5px 10px;
+background-color:powderblue;
+color: #fff;
+border-style:none;
 }
 
-.title2 {
-	background: #0000ff;
-	border: 1px solid #DDD;
-	color: white;
-	text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 1px rgba(0, 0, 0, 0.5);
-	width:100%;
 
-padding: 10px 0;
-}
 </style>
 </head>
 <body>

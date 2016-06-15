@@ -24,15 +24,15 @@
 	width: 300px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
-	border-radius: 3px;
+	border-radius: 5px;
 }
-body{background-color:	powderblue;}
+
 input:focus, select:focus, textarea:focus {
 	outline: 2px #EEA34A solid;
 }
 .piyo{
 padding :5px 10px;
-background-color: pink;
+background-color:powderblue;
 color: #fff;
 border-style:none;}
 </style>
