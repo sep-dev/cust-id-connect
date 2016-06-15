@@ -36,7 +36,7 @@ public class SystemDaoImplCard implements SystemDao<CardData> {
 	public List<CardData> joinjoin() {
 		EntityManager manager = factory.createEntityManager();
 		Query query = manager
-				.createNativeQuery("select * from tbcard , tbcus where tbcard.cus = tbcus.id");
+				.createNativeQuery("select * from tbcard left join tbcus on tbcard.customerdata_id = tbcus.id");
 
 		@SuppressWarnings("unchecked")
 		List<CardData> list = query.getResultList();

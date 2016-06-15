@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class SystemController {
 
-
 	@ExceptionHandler(javax.persistence.RollbackException.class)
 	public String rollbackHandler() {
 
@@ -150,7 +149,6 @@ public class SystemController {
 			dao.add(cd);
 		}
 
-
 		return "redirect:/detail?id=" + cd.getCustomerdata().getId();
 	}
 
@@ -180,11 +178,7 @@ public class SystemController {
 		model.addAttribute("cardlist", list);
 		CardData cd = new CardData();
 		model.addAttribute("cardData", cd);
-		/*
-		 * SystemDao<CustomerData> daocus = new SystemDaoImpl();
-		 * List<CustomerData> listcus = daocus.getAll();
-		 * model.addAttribute("cuslist", listcus);
-		 */
+
 		return "cardlist";
 	}
 

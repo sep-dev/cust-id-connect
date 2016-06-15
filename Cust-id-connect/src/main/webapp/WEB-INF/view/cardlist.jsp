@@ -110,6 +110,7 @@ border-style:none;
 			</tbody>
 		</table>
 		<a class="btn"href="/Cust-id-connect/top">トップ画面に戻る</a>
+		${fuck}
 
 	</div>
 
