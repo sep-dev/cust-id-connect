@@ -10,12 +10,32 @@
 <head>
 <meta charset="utf-8">
 <title>顧客情報更新画面</title>
-<!-- <script language="JavaScript">
-	function kakunin(frm) {
-		alert("更新しました")
-		location.reload();
-	}
-</script> -->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
+<style>
+.hoge {
+	border: 0;
+	padding: 3px;
+	font-size: 10;
+	font-family: Arial, sans-serif;
+	color: #aaa;
+	border: solid 1px #ccc;
+	margin: 0 0 10px;
+	width: 300px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 5px;
+}
+
+input:focus, select:focus, textarea:focus {
+	outline: 2px #EEA34A solid;
+}
+.piyo{
+padding :5px 10px;
+background-color:powderblue;
+color: #fff;
+border-style:none;}
+</style>
 </head>
 
 <body>
@@ -27,7 +47,7 @@
 
 			<tr>
 				<td>氏名</td>
-				<td><form:input path = "name"  placeholder="ここに氏名を入力" size="50" value="${iddata.name}" />
+				<td><form:input path = "name"  class ="hoge" placeholder="ここに氏名を入力" size="50" value="${iddata.name}" />
 				 	<!-- required="required"
 					pattern="^[-a-zA-Z0-9ぁ-ゑァ-ヶ一-龠々][-a-zA-Z0-9ぁ-ゑんァ-ヶ一-龠々 　]{0,254}$"
 					title="氏名は半角英数字、かな漢字のみで記入してください。"  /> --></td>
@@ -36,7 +56,7 @@
 			</tr>
 			<tr>
 				<td>住所</td>
-				<td><form:input path="address" placeholder="ここに住所を入力" size="50" value="${iddata.address}"/>
+				<td><form:input path="address" class ="hoge"  placeholder="ここに住所を入力" size="50" value="${iddata.address}"/>
 					<%-- required="required"
 					pattern="^[-a-zA-Z0-9ぁ-ゑァ-ヶ一-龠々][-a-zA-Z0-9ぁ-ゑんァ-ヶ一-龠々 　]{0,254}$"
 					title="住所は半角英数字、かな漢字のみで記入してください。" --%></td>
@@ -44,7 +64,7 @@
 			</tr>
 			<tr>
 				<td>電話番号</td>
-				<td><form:input path="tel" placeholder="ここに電話番号を入力 " size="50" value="${iddata.tel}"/>
+				<td><form:input path="tel" class ="hoge"  placeholder="ここに電話番号を入力 " size="50" value="${iddata.tel}"/>
 					<%-- required="required" pattern="\d{1,5}-\d{1,4}-\d{3,5}"
 					title="電話番号は、市外局番からハイフン（-）を入れて記入してください。" --%></td>
 				<td><font color="red">＜"必須"＞</font></td>
@@ -52,7 +72,7 @@
 
 			<tr>
 				<td>メールアドレス</td>
-				<td><form:input path="mailaddress" placeholder="ここにメールアドレスを入力" size="50" value="${iddata.mailaddress}"/></td>
+				<td><form:input path="mailaddress" class ="hoge"  placeholder="ここにメールアドレスを入力" size="50" value="${iddata.mailaddress}"/></td>
 			</tr>
 			<tr>
 				<td>誕生月</td>
@@ -78,12 +98,13 @@
 				</form:select></td>
 
 			</tr>
+			<tr><td>　</td></tr>
 			<tr>
 				<td>
 				<input type="hidden" name="id" value="${iddata.id}" /></td>
-				<td><input type="submit" value="更新" /> <input type="reset" />
-					<a href="/Cust-id-connect/list"><input type="button" value="一覧画面に戻る" /></a>
-					<a href="/Cust-id-connect/top"><input type="button" value="トップ画面に戻る" /></a></td>
+				<td><input type="submit" class="piyo"value="更新" /> <input type="reset"class="piyo" />
+					<a href="/Cust-id-connect/list"><input type="button" class="piyo" value="一覧画面に戻る" /></a>
+					<a href="/Cust-id-connect/top"><input type="button" class="piyo" value="トップ画面に戻る" /></a></td>
 			</tr>
 
 		</table>
