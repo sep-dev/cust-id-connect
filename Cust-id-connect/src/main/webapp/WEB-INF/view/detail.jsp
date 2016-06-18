@@ -56,42 +56,43 @@
 </head>
 <body>
 	<h1>顧客詳細</h1>
-	<table>
+	 <table>
 		<tr>
 			<td width=20%></td>
 			<td align=justify width=20%>氏名</td>
 			<td width=10%>:</td>
-			<td width=20%>${iddata.name}</td>
+			<td width=20%><c:out value="${cusdata.name}"></c:out></td>
+
 		</tr>
 		<tr>
 			<td></td>
 			<td align=justify>住所</td>
 			<td>:</td>
-			<td>${iddata.address}</td>
+			<td>${cusdata.address}</td>
 		</tr>
 		<tr>
 			<td></td>
 			<td align=justify>電話番号</td>
 			<td>:</td>
-			<td>${iddata.tel}</td>
+			<td>${cusdata.tel}</td>
 		</tr>
 		<tr>
 			<td></td>
 			<td align=justify>メールアドレス</td>
 			<td>:</td>
-			<td>${iddata.mailaddress}</td>
+			<td>${cusdata.mailaddress}</td>
 		</tr>
 		<tr>
 			<td></td>
 			<td align=justify>誕生月</td>
 			<td>:</td>
-			<td>${iddata.birth}月</td>
+			<td>${cusdata.birth}月</td>
 		</tr>
 		<tr>
 			<td></td>
 			<td align=justify>性別</td>
 			<td>:</td>
-			<td>${iddata.gender}</td>
+			<td>${cusdata.gender}</td>
 		</tr>
 		<tr>
 			<td></td>
@@ -100,7 +101,7 @@
 			<td>
 			<td><form action="/Cust-id-connect/update">
 					<input type="hidden" name="id"
-						value='<c:out value="${iddata.id}"></c:out>' /> <input
+						value='<c:out value="${cusdata.id}"></c:out>' /> <input
 						type="submit" value="更新">
 				</form></td>
 		</tr>
@@ -122,20 +123,21 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="obj" items="${cardlist}" varStatus="status">
+				<c:forEach var="obj" items="${hestialist}" varStatus="status">
 					<tr><form:form >
-						<td><c:out value="${obj.cardnumber}"></c:out></td>
-						<td><form:input path="point" value="${obj.point}" style="border:none;"/>P</td>
-					 	<form:hidden path ="cardnumber" value="${obj.cardnumber}"/>
-						<form:hidden path ="ids" value="${obj.ids}"/>
-						<form:hidden path ="customerdata" value="${obj.customerdata.id}"/>
+						<td><c:out value="${obj.carddata.cardnumber}"></c:out></td>
+						<td><form:input path="point" value="${obj.carddata.point}" style="border:none;"/>P</td>
+					 	<form:hidden path ="cardnumber" value="${obj.carddata.cardnumber}"/>
+
+
 
 
 						<td>
+
 						<input type="submit" name="fuck" value ="更新" onclick="return confirm('ポイント変更しても良いですか？ダメですか？')">
 							<form action="/Cust-id-connect/detail" method=post>
 								<input type="hidden" name="cardid"
-									value='<c:out value="${obj.ids}"></c:out>' /> <input
+									value='<c:out value="${obj.carddata.cardnumber}"></c:out>' /> <input
 									type="hidden" name="cusid"
 									value='<c:out value="${obj.customerdata.id}"></c:out>' /> <input
 									type=submit name="delete" value="削除"
@@ -150,7 +152,7 @@
 			<form:form modelAttribute="cardData">
 				<tr>
 					<td>${fuck}</td>
-					<td><form:errors path="point" cssStyle="color:pink" /></td>
+					<td></td>
 				</tr>
 
 				<tr>
@@ -158,7 +160,7 @@
 							size="50" /></td>
 					<td><form:input path="point" placeholder="現ポイントを入力" size="50" />
 					</td>
-					<form:hidden path="customerdata" value="${iddata.id}" />
+
 					<td><input type="submit" name="add" value="登録" /></td>
 				</tr>
 

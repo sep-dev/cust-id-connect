@@ -72,8 +72,8 @@ border-style:none;
 
 				<c:forEach var="obj" items="${cardlist}">
 					<tr>
-						<td><c:out value="${obj.cardnumber}"/></td>
-						<td><c:out value="${obj.point}P"/></td>
+						<td><c:out value="${obj.carddata.cardnumber}"/></td>
+						<td><c:out value="${obj.carddata.point}P"/></td>
 
 						<td>
 
@@ -91,7 +91,7 @@ border-style:none;
 						<td>
 							<form  action="/Cust-id-connect/cardlist" method=post>
 								<input type="hidden" name="id"
-									value='<c:out value="${obj.ids}"></c:out>' /> <input
+									value='<c:out value="${obj.carddata.cardnumber}"></c:out>' /> <input
 									type="submit" value="削除"
 									onclick="return confirm('削除しても良いですか？')">
 							</form>
@@ -110,7 +110,6 @@ border-style:none;
 			</tbody>
 		</table>
 		<a class="btn"href="/Cust-id-connect/top">トップ画面に戻る</a>
-		${fuck}
 
 	</div>
 

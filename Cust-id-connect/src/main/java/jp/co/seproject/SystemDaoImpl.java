@@ -32,7 +32,7 @@ public class SystemDaoImpl implements SystemDao<CustomerData> {
 	// メアド全部
 	public List<CardData> getMailaddressall() {
 		EntityManager manager = factory.createEntityManager();
-		Query query = manager.createNativeQuery("select mailaddress from tbcus where mailaddress != ''");
+		Query query = manager.createNativeQuery("select mailaddress from tbcus where mailaddress != '' ");
 		@SuppressWarnings("unchecked")
 		List<CardData> list = query.getResultList();
 		manager.close();

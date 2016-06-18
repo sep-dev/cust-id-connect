@@ -3,6 +3,7 @@ package jp.co.seproject;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,8 +33,8 @@ public class CustomerData implements Serializable{
 	@Column
 	private String birth;
 
-	@OneToMany(mappedBy = "customerdata")
-	private List<CardData> cardlist;
+	@OneToMany(mappedBy = "customerdata", cascade = { CascadeType.ALL })
+	private List<HestiaData> hestia;
 
 	public int getId() {
 		return id;
@@ -79,12 +80,14 @@ public class CustomerData implements Serializable{
 		this.birth = birth;
 	}
 
-	public List<CardData> getCardlist() {
-		return cardlist;
+	public List<HestiaData> getHestia() {
+		return hestia;
 	}
 
-	public void setCardlist(List<CardData> cardlist) {
-		this.cardlist = cardlist;
+	public void setHestia(List<HestiaData> hestia) {
+		this.hestia = hestia;
 	}
+
+
 
 }

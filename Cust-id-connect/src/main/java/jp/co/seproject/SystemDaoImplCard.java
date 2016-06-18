@@ -36,7 +36,7 @@ public class SystemDaoImplCard implements SystemDao<CardData> {
 	public List<CardData> joinjoin() {
 		EntityManager manager = factory.createEntityManager();
 		Query query = manager
-				.createNativeQuery("select * from tbcard left join tbcus on tbcard.customerdata_id = tbcus.id");
+				.createNativeQuery("select * from tbcard , tbcus where tbcard.customerdata_id = tbcus.id");
 
 		@SuppressWarnings("unchecked")
 		List<CardData> list = query.getResultList();
@@ -46,7 +46,7 @@ public class SystemDaoImplCard implements SystemDao<CardData> {
 	// 検索
 	public CardData findById(int id) {
 		EntityManager manager = factory.createEntityManager();
-		return (CardData) manager.createQuery("from CardData where id = " + id).getSingleResult();
+		return (CardData) manager.createQuery("from CardData where cardnumber = " + id).getSingleResult();
 	}
 
 	// 登録
@@ -88,7 +88,7 @@ public class SystemDaoImplCard implements SystemDao<CardData> {
 	// cusidから検索
 	public List<CardData> findByCusId(int cus) {
 		EntityManager manager = factory.createEntityManager();
-		Query query = manager.createQuery("from CardData where customerdata = " + cus);
+		Query query = manager.createQuery("from CardData where hestia = " + cus);
 
 		@SuppressWarnings("unchecked")
 		List<CardData> list = query.getResultList();

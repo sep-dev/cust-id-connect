@@ -1,11 +1,10 @@
 package jp.co.seproject;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Pattern;
@@ -14,12 +13,9 @@ import javax.validation.constraints.Pattern;
 @Table(name = "tbcard", uniqueConstraints = { @UniqueConstraint(columnNames = { "cardnumber" }) })
 public class CardData {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column
-	private int ids;
 
-	@Column(length = 40, nullable = false, unique = true)
+	@Id
+	@Column(length = 40, nullable = false)
 	@Pattern(regexp = "^[1-9][0-9]{2,4}$")
 	private String cardnumber;
 
@@ -29,16 +25,10 @@ public class CardData {
 
 
 
-	@ManyToOne
-	private CustomerData customerdata;
+	@OneToOne(mappedBy = "carddata", cascade = CascadeType.ALL)
+	private HestiaData hestia;
 
-	public int getIds() {
-		return ids;
-	}
 
-	public void setIds(int ids) {
-		this.ids = ids;
-	}
 
 
 	public void setCardnumber(String cardnumber) {
@@ -57,11 +47,12 @@ public class CardData {
 		return point;
 	}
 
-	public CustomerData getCustomerdata() {
-		return customerdata;
+	public HestiaData getHestia() {
+		return hestia;
 	}
 
-	public void setCustomerdata(CustomerData customerdata) {
-		this.customerdata = customerdata;
+	public void setHestia(HestiaData hestia) {
+		this.hestia = hestia;
 	}
+
 }

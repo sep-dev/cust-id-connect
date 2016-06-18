@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -51,6 +53,10 @@ padding: 10px 0;
 	<p align=center>
 		<a class="btn" href="/Cust-id-connect/cardlist">カード一覧</a> <a
 			class="btn" href="/Cust-id-connect/mail">メール送信</a>
+	</p>
+	<p><c:forEach var="obj" items="${fuck}" varStatus="status">
+	<c:out value="${obj}"/>
+	</c:forEach>
 	</p>
 
 </body>
