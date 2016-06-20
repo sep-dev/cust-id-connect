@@ -29,7 +29,6 @@ public class SystemController {
 	 *
 	 * return "error"; }
 	 */
-
 	// プロパティエディター
 	/*
 	 * @InitBinder protected void initBinder(HttpServletRequest request,
@@ -37,10 +36,8 @@ public class SystemController {
 	 * binder.registerCustomEditor(CustomerData.class, new CCPropertyEditor());
 	 * }
 	 */
-
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-
 
 		return "home";
 	}
@@ -54,8 +51,8 @@ public class SystemController {
 	@RequestMapping(value = "/entry", method = RequestMethod.GET)
 	public String getentry(Model model) {
 		CustomerData cd = new CustomerData();
-		model.addAttribute("customerData", cd);
 
+		model.addAttribute("customerData", cd);
 
 		return "entry";
 
@@ -65,8 +62,6 @@ public class SystemController {
 	public String postentry(@ModelAttribute CustomerData customerdata, Model model) {
 		SystemDao<CustomerData> dao = new SystemDaoImpl();
 		dao.add(customerdata);
-
-
 
 		return "redirect:/list";
 	}
@@ -123,7 +118,6 @@ public class SystemController {
 		model.addAttribute("hestialist", list);
 		model.addAttribute("command", cd);
 
-
 		model.addAttribute("cardData", cd);
 
 		return "detail";
@@ -133,16 +127,13 @@ public class SystemController {
 	public String postdetailadd(@RequestParam int id, @Valid @ModelAttribute CardData cd, BindingResult result,
 			Model model) {
 
+		SystemDaoImplCard dao = new SystemDaoImplCard();
+		HestiaDaoImpl hestiadao = new HestiaDaoImpl();
+		dao.add(cd);
 
-			SystemDaoImplCard dao = new SystemDaoImplCard();
-			HestiaDaoImpl hestiadao = new HestiaDaoImpl();
-			dao.add(cd);
+		System.out.println(cd.getCardnumber());
 
-			System.out.println(cd.getCardnumber());
-
-			hestiadao.cardnumberupdate(id, cd.getCardnumber());
-
-
+		hestiadao.cardnumberupdate(id, cd.getCardnumber());
 
 		return "redirect:/detail?id=" + id;// 仮
 	}
@@ -160,8 +151,7 @@ public class SystemController {
 
 	@RequestMapping(value = "/detail", params = "fuck", method = RequestMethod.POST)
 	public String postdetailpoint(@Valid @RequestParam int cardid, @RequestParam("cusid") int cus,
-			@ModelAttribute CardData cd, BindingResult result,
-			Model model) {
+			@ModelAttribute CardData cd, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			SystemDaoImpl dao = new SystemDaoImpl();
 			CustomerData cusdata = dao.findById(cus);
@@ -174,13 +164,12 @@ public class SystemController {
 			model.addAttribute("hestialist", list);
 			model.addAttribute("command", cd);
 
-
 			model.addAttribute("cardData", cd);
 
 			model.addAttribute("fuck", "カードナンバーとポイントを確認してください♡");
 			return "detail";
 		} else {
-		SystemDaoImplCard dao = new SystemDaoImplCard();
+			SystemDaoImplCard dao = new SystemDaoImplCard();
 
 			dao.update(cd);
 		}
@@ -255,5 +244,22 @@ public class SystemController {
 
 		}
 		return "redirect:/mail";
+	}
+
+	@RequestMapping(value = "/postdelete", method = RequestMethod.GET)
+	public String postdeleteget(Model model){
+		return "home";
+	}
+
+	@RequestMapping(value = "/postdelete", method = RequestMethod.POST)
+	public String deleteconfi(@RequestParam("id") int id, Model model) {
+		SystemDaoImpl dao1 = new SystemDaoImpl();
+		HestiaDaoImpl dao2 = new HestiaDaoImpl();
+		List<HestiaData> hes = dao2.cardsearch(id);//
+		CustomerData cusdata = dao1.findById(id);
+		model.addAttribute("name", cusdata);
+		model.addAttribute("cards", hes);
+		System.out.println(hes);
+		return "deleteconfi";
 	}
 }

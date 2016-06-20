@@ -66,9 +66,11 @@ public class HestiaDaoImpl implements SystemDao<HestiaData> {
 	@Override
 	public HestiaData findById(int id) {
 		EntityManager manager = factory.createEntityManager();
-		Query query = manager.createQuery("from HestiaData");
+		Query query = manager
+				.createQuery("from HestiaData where customerdata =" + id);
 		System.out.println("けんさくちゅ");
 		HestiaData data = (HestiaData) query.getSingleResult();
+		System.out.println(data);
 		manager.close();
 		return data;
 	}
@@ -114,5 +116,18 @@ public class HestiaDaoImpl implements SystemDao<HestiaData> {
 		query.executeUpdate();
 		transaction.commit();
 		manager.close();
+	}
+
+	public List<HestiaData> cardsearch(int id) {
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager
+				.createQuery("from HestiaData where customerdata =" + id);
+		System.out.println("けんさくちゅ");
+		@SuppressWarnings("unchecked")
+		List<HestiaData> data = query.getResultList();
+		System.out.println(data);
+		manager.close();
+		return data;
+
 	}
 }

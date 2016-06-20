@@ -1,5 +1,6 @@
 package jp.co.seproject;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,12 +16,16 @@ public class HestiaData {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private CustomerData customerdata;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private CardData carddata;
 
+	public HestiaData() {
+		super();
+
+	}
 
 
 

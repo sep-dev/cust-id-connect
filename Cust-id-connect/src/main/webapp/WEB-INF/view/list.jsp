@@ -69,10 +69,10 @@
 									type="submit" value="詳細">
 							</form></td>
 						<td>
-							<form action="/Cust-id-connect/list" method=post>
+							<form action="/Cust-id-connect/postdelete" method=post>
 								<input type="hidden" name="id"
 									value='<c:out value="${obj.id}"></c:out>' /> <input
-									type=submit value="削除" onclick="return confirm('送信しても良いですか？')">
+									type=submit value="削除" >
 							</form>
 						</td>
 						<td><form action="/Cust-id-connect/update">
