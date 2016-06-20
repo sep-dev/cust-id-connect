@@ -126,7 +126,7 @@
 				<c:forEach var="obj" items="${hestialist}" varStatus="status">
 					<tr><form:form >
 						<td><c:out value="${obj.carddata.cardnumber}"></c:out></td>
-						<td><form:input path="point" value="${obj.carddata.point}" style="border:none;"/>P</td>
+						<td><form:input path="point" value="${obj.carddata.point}" style="border:none;" pattern="^[1-9][0-9]+$|0"/>P</td>
 					 	<form:hidden path ="cardnumber" value="${obj.carddata.cardnumber}"/>
 
 
@@ -157,8 +157,10 @@
 
 				<tr>
 					<td><form:input path="cardnumber" placeholder="カードIDを入力"
-							size="50" /></td>
-					<td><form:input path="point" placeholder="現ポイントを入力" size="50" />
+							size="50" required="required"
+							pattern="^[1-9][0-9]{2,4}$"/></td>
+					<td><form:input path="point" placeholder="現ポイントを入力" size="50" required="required"
+					pattern= "^[1-9][0-9]+$|0" />
 					</td>
 
 					<td><input type="submit" name="add" value="登録" /></td>
