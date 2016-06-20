@@ -19,7 +19,7 @@ public class CardData {
 	@Pattern(regexp = "^[1-9][0-9]{2,4}$")
 	private String cardnumber;
 
-	@Pattern(regexp = "^[1-9][0-9]+$|0")
+	@Pattern(regexp = "^[1-9][0-9]*$|0")
 	@Column(length = 40, nullable = false)
 	private String point;
 

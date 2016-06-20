@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,17 +19,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class SystemController {
 
-	/*
-	 * @ExceptionHandler(javax.persistence.RollbackException.class) public
-	 * String rollbackHandler() {
-	 *
-	 * return "carderror"; }
-	 *
-	 * @ExceptionHandler(javax.persistence.PersistenceException.class) public
-	 * String persistenceHandler() {
-	 *
-	 * return "error"; }
-	 */
+
+	@ExceptionHandler(javax.persistence.RollbackException.class)
+	public String rollbackHandler() {
+
+		return "error";
+	}
+
+	@ExceptionHandler(javax.persistence.PersistenceException.class)
+	public String persistenceHandler() {
+
+		return "error";
+	}
+
 	// プロパティエディター
 	/*
 	 * @InitBinder protected void initBinder(HttpServletRequest request,
