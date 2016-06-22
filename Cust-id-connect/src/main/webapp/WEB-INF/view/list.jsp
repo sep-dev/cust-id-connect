@@ -110,10 +110,6 @@
 
 					</tbody>
 				</table>
-				<a href="/Cust-id-connect/top"><input type=button
-					value="トップ画面に戻る"></a>
-
-
 			</div>
 		</div>
 		<footer>

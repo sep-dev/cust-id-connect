@@ -37,7 +37,7 @@
 		</header>
 		<div id="main">
 			<h1>メール送信</h1>
-			<form:form modelAttribute="mailModel" id="kanzakiharia">
+			<form:form modelAttribute="mailModel" >
 				<table>
 					<tr>
 						<td>宛先</td>
@@ -74,8 +74,7 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td><a href="/Cust-id-connect/top"><input type="button"
-								class="modoru" value="トップ画面に戻る"></a></td>
+						<td></td>
 					</tr>
 				</table>
 			</form:form>

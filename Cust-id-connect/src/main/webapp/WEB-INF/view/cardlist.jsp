@@ -118,10 +118,12 @@
 
 					</tbody>
 				</table>
-				<a class="btn" href="/Cust-id-connect/top">トップ画面に戻る</a>
+
 
 			</div>
+
 		</div>
+
 		<footer>
 			<div id="footer-bk">
 				<div id="footer">

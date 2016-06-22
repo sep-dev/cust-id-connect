@@ -105,10 +105,7 @@
 					<tr>
 						<td></td>
 						<td><input type="submit" class="piyo" value="登録" /> <input
-							type="reset" class="piyo" /> <a href="/Cust-id-connect/list"><input
-								type="button" value="一覧画面に戻る" class="piyo" /></a> <a
-							href="/Cust-id-connect/top"><input type="button"
-								value="トップ画面に戻る" class="piyo" /></a></td>
+							type="reset" class="piyo" /> </td>
 					</tr>
 
 				</table>
