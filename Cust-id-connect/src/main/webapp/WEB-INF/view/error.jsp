@@ -116,8 +116,7 @@ a:hover {
 		<header>
 			<div id="header">
 				<div id="site_logo"></div>
-				<h1>†ポイントカード管理システム†</h1>
-
+				<h1><a href="/Cust-id-connect/entry" class="link">†ポイントカード管理システム†</a></h1>
 			</div>
 			<div id="menu">
 				<table>
