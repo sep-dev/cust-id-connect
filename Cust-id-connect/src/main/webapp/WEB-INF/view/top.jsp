@@ -7,8 +7,8 @@
 <head>
 <link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>"
 	media="all">
-<link rel="stylesheet"
-	href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>例の紐プロジェクト</title>
 </head>
@@ -16,9 +16,10 @@
 	<div id="container">
 
 		<header>
+
 			<div id="header">
-				<div id="site_logo"></div>
-				<h1>†ポイントカード管理システム†</h1>
+				<img src="./resources/img/minikuroranko.png" width="100%" id="site_logo">
+				<h1 id="title">†ポイントカード管理システム†</h1>
 
 			</div>
 			<div id="menu">

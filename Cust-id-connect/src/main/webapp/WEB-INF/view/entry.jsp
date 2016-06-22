@@ -9,46 +9,18 @@
 
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>"
-	media="all">
-<link rel="stylesheet"
-	href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
+<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>"media="all">
+
 <title>顧客登録画面</title>
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
-<style>
-.hoge {
-	border: 0;
-	padding: 3px;
-	font-size: 10;
-	font-family: Arial, sans-serif;
-	color: #aaa;
-	border: solid 1px #ccc;
-	margin: 0 0 10px;
-	width: 300px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 5px;
-}
-
-input:focus, select:focus, textarea:focus {
-	outline: 2px #EEA34A solid;
-}
-
-.piyo {
-	padding: 5px 10px;
-	background-color: powderblue;
-	color: #fff;
-	border-style: none;
-}
-</style>
 <body>
 	<div id="container">
 
 		<header>
 			<div id="header">
-				<div id="site_logo"></div>
-				<h1>†ポイントカード管理システム†</h1>
+				<img src="./resources/img/minikuroranko.png" width="100%" id="site_logo">
+				<h1 id="title">†ポイントカード管理システム†</h1>
 
 			</div>
 			<div id="menu">

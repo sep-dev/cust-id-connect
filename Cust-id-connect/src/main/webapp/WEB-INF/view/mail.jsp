@@ -5,86 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
 <link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>"
 	media="all">
-<link rel="stylesheet"
-	href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
+
 <title>メール送信画面</title>
-<script>
-	function fuck() {
-		selindex = document.forms.kanzakiharia.kyurukefontwerupusuto.selectIndex
-		if (selindex = 0) {
-			alert("宛先を設定してくだしあ")
-		}
-	}
-</script>
-<style>
-html, body {
-	margin: 0;
-	padding: 0;
-}
-
-h1 {
-	/* 余白は適当に調整してください */
-	margin: 20px 0 20px 0;
-	padding: 0 160px 0 60px;
-	/* サイズも適当に調整してください */
-	font-size: 32px;
-	height: 50px;
-	line-height: 50px;
-	/* 内容に応じた幅になるよう inline-block を指定する */
-	display: inline-block;
-	color: white;
-	/* 今回の本題とは関係ない。文字を立体的にしているけどあんま効果感じない */
-	text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
-	/* ここがステッチになる */
-	border-style: dashed none;
-	border-width: 1px;
-	border-color: #FFFFFF;
-	/* relative にしてスタックを生成 */
-	position: relative;
-	/* before 擬似要素を裏に持っていくために必要 */
-	z-index: auto;
-}
-
-body>h1:before {
-	content: "";
-	/* 右側のボーダーだけ透明色とすることでリボンの形を表現 */
-	border-style: solid;
-	border-color: blue transparent blue blue;
-	border-width: 30px;
-	height: 0;
-	/* 立体感出してるだけ */
-	box-shadow: -1px 1px 1px #000000;
-	/* 位置の指定 */
-	position: absolute;
-	left: 0;
-	right: -7px;
-	top: -5px;
-	bottom: 0;
-	/* z-index を負の数にして h1 より後ろに持っていく */
-	z-index: -1;
-}
-
-.submit {
-	border: 1px solid #777;
-	padding: 4px 10px;
-	color: #fff;
-	cursor: pointer;
-	background: #428ec9;
-	border-radius: 5px;
-}
-
-.modoru {
-	border: 1px solid #777;
-	padding: 4px 10px;
-	color: #fff;
-	cursor: pointer;
-	background: pink;
-	border-radius: 5px;
-}
-</style>
-
 
 </head>
 <body>
@@ -92,7 +18,7 @@ body>h1:before {
 
 		<header>
 			<div id="header">
-				<div id="site_logo"></div>
+				<img src="./resources/img/minikuroranko.png" width="100%" id="site_logo">
 				<h1>†ポイントカード管理システム†</h1>
 
 			</div>

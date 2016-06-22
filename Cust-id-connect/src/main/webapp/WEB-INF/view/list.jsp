@@ -6,10 +6,8 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>"
-	media="all">
-<link rel="stylesheet"
-	href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
+<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>" media="all">
+
 
 <title>顧客一覧検索</title>
 
@@ -50,7 +48,7 @@
 
 		<header>
 			<div id="header">
-				<div id="site_logo"></div>
+				<img src="./resources/img/minikuroranko.png" width="100%" id="site_logo">
 				<h1>†ポイントカード管理システム†</h1>
 
 			</div>
