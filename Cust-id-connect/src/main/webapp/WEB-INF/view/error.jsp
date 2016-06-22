@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page session="false"%>
 <!-- Copyright (C) Net Mania. All Rights Reserved. http://www.netmania.jp/ -->
 <!DOCTYPE html>
 <html>
@@ -16,7 +19,6 @@
 <title>被り</title>
 
 <style type="text/css">
-<!--
 body {
 	font-family: Osaka, Verdana, Arial, Helvetica, sans-serif;
 	text-align: center;
@@ -87,8 +89,25 @@ a:hover {
 	color: #FF0000;
 	text-decoration: underline;
 }
--->
 </style>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.9.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript">
+	function countdown($call, $count) {
+		$('#count').text($count);
+		if ($count) {
+			setTimeout(function() {
+				$count = $count - 1;
+				countdown($call, $count);
+			}, 1000);
+		} else {
+			$('body').append($('<scr'+'ipt>' + $call + ';<\/scr'+'ipt>'));
+		}
+	}// end function
+	$(function() {
+		countdown('window.location.replace("/Cust-id-connect/list")', 10);
+	});
+</script>
 </head>
 
 <body>
@@ -119,7 +138,7 @@ a:hover {
 
 			<div class="file">そのカード番号は既に使用されております</div>
 			<div class="main">
-				10秒後に顧客一覧画面に遷移します <br>
+				<span id="count">10</span>秒後に顧客一覧画面に遷移します <br>
 
 				<div class="home">
 					<a href="javascript:history.back()">戻る</a>
