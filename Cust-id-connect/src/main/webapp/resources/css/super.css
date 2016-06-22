@@ -40,9 +40,11 @@ background-color:white;
 }
 #main{
 margin:5% auto;
-width:95%;
-border:black 1px solid;
-background-color:white;
+padding:3% 0;
+width:98%;
+
+border:black 3px dotted;
+background-color: rgba(255,255,255,0.1);
 }
 #menu{
 	padding:0;

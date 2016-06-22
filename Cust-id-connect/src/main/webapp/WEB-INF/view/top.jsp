@@ -41,11 +41,11 @@
 					<th><a href="/Cust-id-connect/entry" class="link"><img
 							src="./resources/img/kawaiiranko.jpg" width="100%"></a></th>
 					<th><a href="/Cust-id-connect/list" class="link"><img
-							src="./resources/img/kawaiiranko.jpg" width="100%"></a></th>
+							src="./resources/img/smileranko.jpg" width="100%"></a></th>
 					<th><a href="/Cust-id-connect/cardlist" class="link"><img
-							src="./resources/img/kawaiiranko.jpg" width="100%"></a></th>
+							src="./resources/img/damaraseruranko.jpg" width="100%"></a></th>
 					<th><a href="/Cust-id-connect/mail" class="link"><img
-							src="./resources/img/kawaiiranko.jpg" width="100%"></a></th>
+							src="./resources/img/totemokawaiiranko.jpg" width="100%"></a></th>
 				</tr>
 				<tr>
 					<td>顧客の新規登録ができます</td>
