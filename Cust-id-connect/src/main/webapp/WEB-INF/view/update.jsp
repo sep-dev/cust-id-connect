@@ -50,7 +50,7 @@ input:focus, select:focus, textarea:focus {
 		<header>
 			<div id="header">
 				<div id="site_logo"></div>
-				<h1><a href="/Cust-id-connect/entry" class="link">†ポイントカード管理システム†</a></h1>
+				<h1><a href="/Cust-id-connect/top" class="link">†ポイントカード管理システム†</a></h1>
 
 			</div>
 			<div id="menu">
