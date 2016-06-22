@@ -9,6 +9,8 @@
 
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>" media="all">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
 <title>顧客登録画面</title>
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />

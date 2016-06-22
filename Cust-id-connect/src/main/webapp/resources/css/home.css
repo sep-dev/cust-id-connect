@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+p {
+	font-size: 30pt
+}
+
+#a {
+	font-size: 40pt
+}
+
+.a {
+	font-size: 20pt
+}
+
+p {
+	color: blue
+}
+
+#c {
+	color: rgb(0, 100, 100)
+}

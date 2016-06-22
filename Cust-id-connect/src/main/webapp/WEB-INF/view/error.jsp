@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- Copyright (C) Net Mania. All Rights Reserved. http://www.netmania.jp/ -->
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>" media="all">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
 
 <!-- 以下転送処理・URLを変更しましょう！数字は転送までの時間です。 -->
 <META HTTP-EQUIV="Refresh" CONTENT="10;URL=/Cust-id-connect/list">

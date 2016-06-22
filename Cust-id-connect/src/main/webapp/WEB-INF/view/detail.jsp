@@ -2,8 +2,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page session="false"%>
+<!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>" media="all">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 <title>詳細</title>

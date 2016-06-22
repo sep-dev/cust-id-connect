@@ -2,62 +2,75 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
-<style type="text/css">
-body {
-	background-color: #FFE4C4;
-	color: pink;
-}
-
-.btn {
-	text-decoration: none;
-	font-weight: bold;
-	text-align: center;
-	font-size: 26px;
-	background: #EEE;
-	border-top: 5px solid #C00;
-	border-left: 5px solid #09C;
-	border-right: 5px solid #9C0;
-	border-bottom: 5px solid #FC0;
-	color: green;
-	width: 200px;
-	padding: 20px 0;
-}
-
-.title2 {
-	background: #0000ff;
-	border: 1px solid #DDD;
-	color: white;
-	text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 1px rgba(0, 0, 0, 0.5);
-	width:100%;
-
-padding: 10px 0;
-}
-</style>
+<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>"
+	media="all">
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>例の紐プロジェクト</title>
 </head>
 <body>
-	<h1 class="title2" align=center>顧客ポイントカード管理システム</h1>
+	<div id="container">
 
-	<p>${test}</p>
+		<header>
+			<div id="header">
+				<div id="site_logo"></div>
+				<h1>†ポイントカード管理システム†</h1>
 
-	<P align=center>
-		<a class="btn" href="/Cust-id-connect/entry">顧客登録</a> <a class="btn"
-			href="/Cust-id-connect/list">顧客一覧</a>
-	</P>
-	<p align=center>
-		<a class="btn" href="/Cust-id-connect/cardlist">カード一覧</a> <a
-			class="btn" href="/Cust-id-connect/mail">メール送信</a>
-	</p>
-	<p><c:forEach var="obj" items="${fuck}" varStatus="status">
-	<c:out value="${obj}"/>
-	</c:forEach>
-	</p>
+			</div>
+			<div id="menu">
+				<table>
+					<tr>
+						<td><a href="/Cust-id-connect/entry" class="link">顧客登録</a></td>
+						<td><a href="/Cust-id-connect/list" class="link">顧客一覧</a></td>
+						<td><a href="/Cust-id-connect/cardlist" class="link">カード一覧</a></td>
+						<td><a href="/Cust-id-connect/mail" class="link">メール送信</a></td>
+					</tr>
+				</table>
+
+			</div>
+		</header>
+		<div id="main">
+
+			<table class="table">
+				<tr>
+					<th><a href="/Cust-id-connect/entry" class="link"><img
+							src="./resources/img/kawaiiranko.jpg" width="100%"></a></th>
+					<th><a href="/Cust-id-connect/list" class="link"><img
+							src="./resources/img/kawaiiranko.jpg" width="100%"></a></th>
+					<th><a href="/Cust-id-connect/cardlist" class="link"><img
+							src="./resources/img/kawaiiranko.jpg" width="100%"></a></th>
+					<th><a href="/Cust-id-connect/mail" class="link"><img
+							src="./resources/img/kawaiiranko.jpg" width="100%"></a></th>
+				</tr>
+				<tr>
+					<td>顧客の新規登録ができます</td>
+					<td>顧客一覧を確認できます</td>
+					<td>カード一覧を確認できます</td>
+					<td>メール送信ができます</td>
+				</tr>
+				<tr>
+					<td>名前、住所、電話番号の他、メアド、誕生月、性別を任意登録できます</td>
+					<td>顧客情報更新、顧客詳細情報、<strong>カードの登録</strong>もこちらから
+					</td>
+					<td>カード所持者情報、カードポイント更新はこちらから</td>
+					<td>メールアドレスが登録された会員全員、もしくは幸運な一人に送れます</td>
+				</tr>
+			</table>
+
+
+		</div>
+		<footer>
+			<div id="footer-bk">
+				<div id="footer">
+					<small>いなげドラモン</small>
+				</div>
+			</div>
+		</footer>
+	</div>
 
 </body>
 </html>
