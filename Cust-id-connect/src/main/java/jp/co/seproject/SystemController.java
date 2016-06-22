@@ -1,10 +1,13 @@
 package jp.co.seproject;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
 import javax.mail.internet.AddressException;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -264,5 +267,35 @@ public class SystemController {
 		model.addAttribute("cards", hes);
 		System.out.println(hes);
 		return "deleteconfi";
+	}
+
+	@RequestMapping("/download")
+	public void csvDownload(HttpServletResponse response) {
+
+		// 文字コードと出力するCSVファイル名を設定
+		response.setContentType("text/csv;charset=sjis");
+		response.setHeader("Content-Disposition", "attachment; filename=\"test.csv\"");
+		HestiaDaoImpl hestia = new HestiaDaoImpl();
+		// try-with-resources文を使うことでclose処理を自動化
+		try (PrintWriter pw = response.getWriter()) {
+			List<HestiaData> all_users = hestia.getAll();
+			for (int i = 0; i < all_users.size(); i++) {
+				long id = all_users.get(i).getCustomerdata().getId();
+				String name = all_users.get(i).getCustomerdata().getName();
+				String address = all_users.get(i).getCustomerdata().getAddress();
+				String tel = all_users.get(i).getCustomerdata().getTel();
+				String mailaddress = all_users.get(i).getCustomerdata().getMailaddress();
+				// CSVファイル内部に記載する形式で文字列を設定
+				String outputString = id + "," + name + "," + address + "," + tel + "," + mailaddress + "," + id
+						+ "\r\n";
+
+				// CSVファイルに書き込み
+				pw.print(outputString);
+				System.out.println(outputString);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 }

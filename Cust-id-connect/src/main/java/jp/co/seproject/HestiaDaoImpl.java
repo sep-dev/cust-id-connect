@@ -130,4 +130,19 @@ public class HestiaDaoImpl implements SystemDao<HestiaData> {
 		return data;
 
 	}
+
+	public List<HestiaData> findAllUsers() {
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createQuery("select tbhestia.customerdata_id,tbcus.name,tbcus.address,"
+				+ "tbcus.tel,tbcus.mailaddress,tbcus.birth,tbcus.gender,tbhestia.carddata_cardnumber,tbcard.pointfrom tbhestia"
+				+ " left join tbcard on tbcard.cardnumber = tbhestia.carddata_cardnumber"
+				+ " left join tbcus on tbcus.id = tbhestia.customerdata_id");
+		System.out.println("けんさくちゅ");
+		@SuppressWarnings("unchecked")
+		List<HestiaData> data = query.getResultList();
+		System.out.println(data);
+		manager.close();
+		return data;
+
+	}
 }

@@ -68,6 +68,8 @@
 			<div id="footer-bk">
 				<div id="footer">
 					<small>ククク、我が名は神崎蘭子。私の才能を見抜くとは、貴方も「瞳」の持ち主のようね。運命の扉は、今開かれたわ！（神崎蘭子です。これからプロデュース、お願いします！）</small>
+					<br>
+					<a href="/Cust-id-connect/download"><input type="button" value="全データダウンロード"class="button"/></a>
 				</div>
 			</div>
 		</footer>
