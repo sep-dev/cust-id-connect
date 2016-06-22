@@ -61,8 +61,8 @@
 	<div id="container">
 
 		<div id="header">
-			<div id="site_logo"></div>
-			<h1><a href="/Cust-id-connect/top" class="link">†ポイントカード管理システム†</a></h1>
+			<img src="./resources/img/minikuroranko.png" width="100%" id="site_logo">
+				<h1><a href="/Cust-id-connect/top" class="link">†ポイントカード管理システム†</a></h1>
 
 		</div>
 		<div id="menu">
