@@ -5,28 +5,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>" media="all">
-	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
+<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>"
+	media="all">
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>削除確認</title>
 </head>
 <body>
-<h1>削除確認</h1>
-<p>以下のデータを削除します</p>
-<br>
-<c:out value="${name.name}"/>
-<p>
+	<div id="container">
+
+		<header>
+			<div id="header">
+				<div id="site_logo"></div>
+				<h1>†ポイントカード管理システム†</h1>
+
+			</div>
+			<div id="menu">
+				<table>
+					<tr>
+						<td><a href="/Cust-id-connect/entry" class="link">顧客登録</a></td>
+						<td><a href="/Cust-id-connect/list" class="link">顧客一覧</a></td>
+						<td><a href="/Cust-id-connect/cardlist" class="link">カード一覧</a></td>
+						<td><a href="/Cust-id-connect/mail" class="link">メール送信</a></td>
+					</tr>
+				</table>
+
+			</div>
+		</header>
+		<div id="main">
+			<h1>削除確認</h1>
+			<p>以下のデータを削除します</p>
+			<br>
+			<c:out value="${name.name}" />
+			<p>
 
 
-<c:forEach var="obj" items="${cards}"  varStatus="status">
-<c:if test="${status.index == 0}">所持カード<br></c:if>
-<c:out value="${obj.carddata.cardnumber}" default = "無し"/>
-</c:forEach>
-</p>
-<form action="/Cust-id-connect/list" method=post>
-								<input type="hidden" name="id"
-									value='<c:out value="${name.id}"></c:out>' /> <input
-									type=submit value="削除" >
-							</form>
+				<c:forEach var="obj" items="${cards}" varStatus="status">
+					<c:if test="${status.index == 0}">所持カード<br>
+					</c:if>
+					<c:out value="${obj.carddata.cardnumber}" default="無し" />
+				</c:forEach>
+			</p>
+			<form action="/Cust-id-connect/list" method=post>
+				<input type="hidden" name="id"
+					value='<c:out value="${name.id}"></c:out>' /> <input type=submit
+					value="削除">
+			</form>
+		</div>
+		<footer>
+			<div id="footer-bk">
+				<div id="footer">
+					<small>いなげドラモン</small>
+				</div>
+			</div>
+		</footer>
+	</div>
+
 </body>
 </html>

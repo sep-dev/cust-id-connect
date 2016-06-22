@@ -6,8 +6,10 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>" media="all">
-	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
+<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>"
+	media="all">
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
 
 <title>顧客一覧検索</title>
 
@@ -44,55 +46,88 @@
 
 </head>
 <body>
-	<h1>顧客一覧</h1>
-	<h2>${deleted}</h2>
-	<div class="container">
+	<div id="container">
 
-		<table id="example" class="display" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th align=center>氏名</th>
-					<th align=center>住所</th>
-					<th align=center>電話番号</th>
-					<th></th>
-					<th></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
+		<header>
+			<div id="header">
+				<div id="site_logo"></div>
+				<h1>†ポイントカード管理システム†</h1>
 
-				<c:forEach var="obj" items="${cuslist}" varStatus="status">
+			</div>
+			<div id="menu">
+				<table>
 					<tr>
-						<td><c:out value="${obj.name}"></c:out></td>
-						<td><c:out value="${obj.address}"></c:out></td>
-						<td><c:out value="${obj.tel}"></c:out></td>
-						<td><form action="/Cust-id-connect/detail">
-								<input type="hidden" name="id"
-									value='<c:out value="${obj.id}"></c:out>' /> <input
-									type="submit" value="詳細">
-							</form></td>
-						<td>
-							<form action="/Cust-id-connect/postdelete" method=post>
-								<input type="hidden" name="id"
-									value='<c:out value="${obj.id}"></c:out>' /> <input
-									type=submit value="削除" >
-							</form>
-						</td>
-						<td><form action="/Cust-id-connect/update">
-								<input type="hidden" name="id"
-									value='<c:out value="${obj.id}"></c:out>' /> <input
-									type="submit" value="更新">
-							</form></td>
+						<td><a href="/Cust-id-connect/entry" class="link">顧客登録</a></td>
+						<td><a href="/Cust-id-connect/list" class="link">顧客一覧</a></td>
+						<td><a href="/Cust-id-connect/cardlist" class="link">カード一覧</a></td>
+						<td><a href="/Cust-id-connect/mail" class="link">メール送信</a></td>
 					</tr>
-				</c:forEach>
+				</table>
+
+			</div>
+		</header>
+		<div id="main">
+
+			<h1>顧客一覧</h1>
+			<h2>${deleted}</h2>
+			<div class="container">
+
+				<table id="example" class="display" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<th align=center>氏名</th>
+							<th align=center>住所</th>
+							<th align=center>電話番号</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<c:forEach var="obj" items="${cuslist}" varStatus="status">
+							<tr>
+								<td><c:out value="${obj.name}"></c:out></td>
+								<td><c:out value="${obj.address}"></c:out></td>
+								<td><c:out value="${obj.tel}"></c:out></td>
+								<td><form action="/Cust-id-connect/detail">
+										<input type="hidden" name="id"
+											value='<c:out value="${obj.id}"></c:out>' /> <input
+											type="submit" value="詳細">
+									</form></td>
+								<td>
+									<form action="/Cust-id-connect/postdelete" method=post>
+										<input type="hidden" name="id"
+											value='<c:out value="${obj.id}"></c:out>' /> <input
+											type=submit value="削除">
+									</form>
+								</td>
+								<td><form action="/Cust-id-connect/update">
+										<input type="hidden" name="id"
+											value='<c:out value="${obj.id}"></c:out>' /> <input
+											type="submit" value="更新">
+									</form></td>
+							</tr>
+						</c:forEach>
 
 
-			</tbody>
-		</table>
-		<a href="/Cust-id-connect/top"><input type=button value="トップ画面に戻る"></a>
+					</tbody>
+				</table>
+				<a href="/Cust-id-connect/top"><input type=button
+					value="トップ画面に戻る"></a>
 
 
+			</div>
+		</div>
+		<footer>
+			<div id="footer-bk">
+				<div id="footer">
+					<small>いなげドラモン</small>
+				</div>
+			</div>
+		</footer>
 	</div>
+
 
 	<script type="text/javascript">
 		// For demo to fit into DataTables site builder...

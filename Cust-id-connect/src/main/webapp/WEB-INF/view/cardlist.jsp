@@ -5,8 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>" media="all">
-	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
+<link rel="stylesheet" href="<c:url value="/resources/css/super.css"/>"
+	media="all">
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 <title>カード一覧</title>
@@ -41,79 +43,102 @@
 		});
 	});
 </script>
- <style type="text/css">
-
+<style type="text/css">
 .btn {
-
-padding :5px 10px;
-background-color:powderblue;
-color: #fff;
-border-style:none;
+	padding: 5px 10px;
+	background-color: powderblue;
+	color: #fff;
+	border-style: none;
 }
-
-
 </style>
 </head>
 <body>
-	<h1 class="title2">カード一覧</h1>
+	<div id="container">
 
-	<div class="container">
+		<header>
+			<div id="header">
+				<div id="site_logo"></div>
+				<h1>†ポイントカード管理システム†</h1>
 
-		<table id="example" class="display" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th align=center>カードナンバー</th>
-					<th align=center>累計ポイント</th>
-
-					<th align=center>氏名</th>
-					<th></th>
-					<th></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-
-				<c:forEach var="obj" items="${cardlist}">
+			</div>
+			<div id="menu">
+				<table>
 					<tr>
-						<td><c:out value="${obj.carddata.cardnumber}"/></td>
-						<td><c:out value="${obj.carddata.point}P"/></td>
-
-						<td>
-
-									<c:out value="${obj.customerdata.name}"></c:out>
-
-							</td>
-						<td><form action="/Cust-id-connect/detail">
-								<%
-									//ここのidをcusidに直す
-								%>
-								<input type="hidden" name="id"
-									value='<c:out value="${obj.customerdata.id}"></c:out>' /><input
-									type="submit" value="詳細">
-							</form>
-						<td>
-							<form  action="/Cust-id-connect/cardlist" method=post>
-								<input type="hidden" name="id"
-									value='<c:out value="${obj.carddata.cardnumber}"></c:out>' /> <input
-									type="submit" value="削除"
-									onclick="return confirm('削除しても良いですか？')">
-							</form>
-						<td><form action="/Cust-id-connect/update">
-								<%
-									//ここのidをcusidに直す
-								%>
-								<input type="hidden" name="id"
-									value='<c:out value="${obj.customerdata.id}"></c:out>' /> <input
-									type="submit" value="更新">
-							</form></td>
+						<td><a href="/Cust-id-connect/entry" class="link">顧客登録</a></td>
+						<td><a href="/Cust-id-connect/list" class="link">顧客一覧</a></td>
+						<td><a href="/Cust-id-connect/cardlist" class="link">カード一覧</a></td>
+						<td><a href="/Cust-id-connect/mail" class="link">メール送信</a></td>
 					</tr>
-				</c:forEach>
+				</table>
+
+			</div>
+		</header>
+		<div id="main">
+
+			<h1 class="title2">カード一覧</h1>
+
+			<div class="container">
+
+				<table id="example" class="display" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<th align=center>カードナンバー</th>
+							<th align=center>累計ポイント</th>
+
+							<th align=center>氏名</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<c:forEach var="obj" items="${cardlist}">
+							<tr>
+								<td><c:out value="${obj.carddata.cardnumber}" /></td>
+								<td><c:out value="${obj.carddata.point}P" /></td>
+
+								<td><c:out value="${obj.customerdata.name}"></c:out></td>
+								<td><form action="/Cust-id-connect/detail">
+										<%
+										    //ここのidをcusidに直す
+										%>
+										<input type="hidden" name="id"
+											value='<c:out value="${obj.customerdata.id}"></c:out>' /><input
+											type="submit" value="詳細">
+									</form>
+								<td>
+									<form action="/Cust-id-connect/cardlist" method=post>
+										<input type="hidden" name="id"
+											value='<c:out value="${obj.carddata.cardnumber}"></c:out>' />
+										<input type="submit" value="削除"
+											onclick="return confirm('削除しても良いですか？')">
+									</form>
+								<td><form action="/Cust-id-connect/update">
+										<%
+										    //ここのidをcusidに直す
+										%>
+										<input type="hidden" name="id"
+											value='<c:out value="${obj.customerdata.id}"></c:out>' /> <input
+											type="submit" value="更新">
+									</form></td>
+							</tr>
+						</c:forEach>
 
 
-			</tbody>
-		</table>
-		<a class="btn"href="/Cust-id-connect/top">トップ画面に戻る</a>
+					</tbody>
+				</table>
+				<a class="btn" href="/Cust-id-connect/top">トップ画面に戻る</a>
 
+			</div>
+		</div>
+		<footer>
+			<div id="footer-bk">
+				<div id="footer">
+					<small>いなげドラモン</small>
+				</div>
+			</div>
+		</footer>
 	</div>
 
 	<script type="text/javascript">
