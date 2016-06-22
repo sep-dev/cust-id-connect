@@ -115,7 +115,7 @@
 		<footer>
 			<div id="footer-bk">
 				<div id="footer">
-					<small>いなげドラモン</small>
+					<small>闇に飲まれよ!</small>
 				</div>
 			</div>
 		</footer>

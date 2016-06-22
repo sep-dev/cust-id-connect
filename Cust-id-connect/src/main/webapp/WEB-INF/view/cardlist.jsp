@@ -127,7 +127,7 @@
 		<footer>
 			<div id="footer-bk">
 				<div id="footer">
-					<small>いなげドラモン</small>
+					<small>う、虚ろなる境界を…超えた？(さ、さわられちゃった～)</small>
 				</div>
 			</div>
 		</footer>

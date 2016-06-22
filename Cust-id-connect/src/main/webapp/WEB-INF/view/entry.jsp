@@ -114,7 +114,7 @@
 		<footer>
 			<div id="footer-bk">
 				<div id="footer">
-					<small>いなげドラモン</small>
+					<small>ククク、創世の時！(これから、よろしくね♪)</small>
 				</div>
 			</div>
 		</footer>

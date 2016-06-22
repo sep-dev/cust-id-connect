@@ -67,7 +67,7 @@
 		<footer>
 			<div id="footer-bk">
 				<div id="footer">
-					<small>いなげドラモン</small>
+					<small>ククク、我が名は神崎蘭子。私の才能を見抜くとは、貴方も「瞳」の持ち主のようね。運命の扉は、今開かれたわ！（神崎蘭子です。これからプロデュース、お願いします！）</small>
 				</div>
 			</div>
 		</footer>

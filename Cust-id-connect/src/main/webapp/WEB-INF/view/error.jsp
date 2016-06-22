@@ -68,7 +68,7 @@
 		<footer>
 			<div id="footer-bk">
 				<div id="footer">
-					<small>いなげドラモン</small>
+					<small>愛する使徒達よ、闇に飲まれよ！（お疲れ様でした！）</small>
 				</div>
 			</div>
 		</footer>

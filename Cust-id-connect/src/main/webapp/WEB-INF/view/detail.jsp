@@ -207,7 +207,7 @@
 		<footer>
 			<div id="footer-bk">
 				<div id="footer">
-					<small>いなげドラモン</small>
+					<small>我が言霊は読み解けぬと…？(普段からこういうしゃべり方だもん…)</small>
 				</div>
 			</div>
 		</footer>
