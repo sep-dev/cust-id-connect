@@ -10,6 +10,23 @@
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+var img = new Array();
+img[0] = new Image();
+img[0].src = "./resources/img/minikuroranko.png";
+img[1] = new Image();
+img[1].src = "./resources/img/minishiroanko.png";
+
+var count=0;
+
+function changeIMG(){
+  if (count == 1)
+  { count=0; }
+  else
+  { count++; }
+  document.getElementById("site_logo").src=img[count].src;
+}
+</script>
 <title>例の紐プロジェクト</title>
 </head>
 <body>
@@ -18,7 +35,8 @@
 		<header>
 
 			<div id="header">
-				<img src="./resources/img/minikuroranko.png" width="100%" id="site_logo">
+				<img src="./resources/img/minikuroranko.png" width="100%" id="site_logo" onclick="changeIMG()">
+
 				<h1><a href="/Cust-id-connect/top" class="link">†ポイントカード管理システム†</a></h1>
 
 			</div>

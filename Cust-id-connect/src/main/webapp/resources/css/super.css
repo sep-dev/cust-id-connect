@@ -21,12 +21,13 @@ body{
 }
 
 #header h1{
-	margin:10px 0 10px 60px;
+	margin:5px 0 10px 60px;
 	color:black;
-	border:black 1px dotted;
+	border:black 1px solid;
 	border-left:black 10px solid;
-	font-size:20px !important;
+	font-size:26px !important;
 	padding:10px 20px;
+
 }
 #title{font-size:28px}
 #header{
@@ -34,7 +35,7 @@ height:60px;
 margin: 0 auto;
 padding:0 0 ;
 border:white 1px solid;
-background-color:white;
+background-color:rgba(255,255,255,0.7);
 }
 #menu table tr td{
 	padding:0.1%;
@@ -114,9 +115,7 @@ img{
 
 
 }
-#site_logo:active{
-	content:url(../img/minishiroanko.png);
-}
+
 div#footer-bk
 {
 	background-color: #2c163a;
