@@ -1,10 +1,9 @@
 html, body {
   height: 100%;
   width:100%;
-  margin:0;
+  margin:0 auto;
   padding:0;
-  min-width: 700px;
-  max-width:1280px;
+
 }
 body{
 	background-image:url(../img/gray.jpg);
@@ -12,6 +11,7 @@ body{
 	background-position: center top;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+
 }
 #container{
 	height:100%;
@@ -45,6 +45,8 @@ width:98%;
 
 border:black 3px dotted;
 background-color: rgba(255,255,255,0.5);
+min-width: 700px;
+  max-width:1280px;
 }
 #menu{
 	padding:0;
@@ -121,7 +123,9 @@ div#footer-bk
 	height: 60px;            /* 縦の幅を120px */
 	position: fixed;       /* 絶対位置指定することを定義 */
 	bottom: 0px;              /* 絶対位置指定(左0px,下0px) */
-	padding:0;          /* 上下に余白を取る */
+	padding:0;
+
+
 }
 /* フッターの表示領域 */
 div#footer{
@@ -129,6 +133,7 @@ div#footer{
 	width: 95%;           /* 横の幅970px */
 	margin:auto;           /* 中央揃え */
 	text-align:center;
+
 }
 #footer small{
 	color:white;
