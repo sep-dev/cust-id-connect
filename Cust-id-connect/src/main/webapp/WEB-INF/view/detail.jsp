@@ -151,8 +151,9 @@
 							<tr>
 								<form:form>
 									<td><c:out value="${obj.carddata.cardnumber}"></c:out></td>
-									<td><form:input path="point" value="${obj.carddata.point}"
-											style="border:none;" pattern="^[1-9][0-9]*$|0" />P</td>
+									<td><span style="display:none;">${obj.carddata.point}</span>
+									<form:input path="point" value="${obj.carddata.point}"
+											style="border:none;border-bottom:pink 1px solid;width:100%;" pattern="^[1-9][0-9]*$|0" /></td>
 									<form:hidden path="cardnumber"
 										value="${obj.carddata.cardnumber}" />
 

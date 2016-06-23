@@ -59,7 +59,6 @@ public class SystemController {
 		CustomerData cd = new CustomerData();
 
 		model.addAttribute("customerData", cd);
-
 		return "entry";
 
 	}
@@ -274,7 +273,7 @@ public class SystemController {
 
 		// 文字コードと出力するCSVファイル名を設定
 		response.setContentType("text/csv;charset=sjis");
-		response.setHeader("Content-Disposition", "attachment; filename=\"test.csv\"");
+		response.setHeader("Content-Disposition", "attachment; filename=\"all_users.csv\"");
 		HestiaDaoImpl hestia = new HestiaDaoImpl();
 		// try-with-resources文を使うことでclose処理を自動化
 		String midashi = "ID,名前,住所,電話番号,メールアドレス,性別,誕生月,カード番号,ポイント数\r\n";
@@ -292,7 +291,6 @@ public class SystemController {
 				String birth = all_users.get(i).getCustomerdata().getBirth();
 				String cardnumber = all_users.get(i).getCarddata().getCardnumber();
 				String point = all_users.get(i).getCarddata().getPoint();
-
 				String outputString = id + "," + name + "," + address + "," + tel + "," + mailaddress + "," + gender
 						+ "," + birth + "," + cardnumber + "," + point
 						+ "\r\n";
