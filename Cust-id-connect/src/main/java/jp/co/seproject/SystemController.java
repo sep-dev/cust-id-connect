@@ -277,7 +277,10 @@ public class SystemController {
 		response.setHeader("Content-Disposition", "attachment; filename=\"test.csv\"");
 		HestiaDaoImpl hestia = new HestiaDaoImpl();
 		// try-with-resources文を使うことでclose処理を自動化
+		String midashi = "ID,名前,住所,電話番号,メールアドレス,性別,誕生月,カード番号,ポイント数\r\n";
+
 		try (PrintWriter pw = response.getWriter()) {
+			pw.print(midashi);
 			List<HestiaData> all_users = hestia.getAll();
 			for (int i = 0; i < all_users.size(); i++) {
 				long id = all_users.get(i).getCustomerdata().getId();
@@ -285,8 +288,13 @@ public class SystemController {
 				String address = all_users.get(i).getCustomerdata().getAddress();
 				String tel = all_users.get(i).getCustomerdata().getTel();
 				String mailaddress = all_users.get(i).getCustomerdata().getMailaddress();
-				// CSVファイル内部に記載する形式で文字列を設定
-				String outputString = id + "," + name + "," + address + "," + tel + "," + mailaddress + "," + id
+				String gender = all_users.get(i).getCustomerdata().getGender();
+				String birth = all_users.get(i).getCustomerdata().getBirth();
+				String cardnumber = all_users.get(i).getCarddata().getCardnumber();
+				String point = all_users.get(i).getCarddata().getPoint();
+
+				String outputString = id + "," + name + "," + address + "," + tel + "," + mailaddress + "," + gender
+						+ "," + birth + "," + cardnumber + "," + point
 						+ "\r\n";
 
 				// CSVファイルに書き込み

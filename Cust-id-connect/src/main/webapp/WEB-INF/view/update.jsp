@@ -16,32 +16,7 @@
 <title>顧客情報更新画面</title>
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
-<style>
-.hoge {
-	border: 0;
-	padding: 3px;
-	font-size: 10;
-	font-family: Arial, sans-serif;
-	color: #aaa;
-	border: solid 1px #ccc;
-	margin: 0 0 10px;
-	width: 300px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 5px;
-}
 
-input:focus, select:focus, textarea:focus {
-	outline: 2px #EEA34A solid;
-}
-
-.piyo {
-	padding: 5px 10px;
-	background-color: powderblue;
-	color: #fff;
-	border-style: none;
-}
-</style>
 </head>
 
 <body>
@@ -132,10 +107,7 @@ input:focus, select:focus, textarea:focus {
 					<tr>
 						<td><input type="hidden" name="id" value="${iddata.id}" /></td>
 						<td><input type="submit" class="piyo" value="更新" /> <input
-							type="reset" class="piyo" /> <a href="/Cust-id-connect/list"><input
-								type="button" class="piyo" value="一覧画面に戻る" /></a> <a
-							href="/Cust-id-connect/top"><input type="button" class="piyo"
-								value="トップ画面に戻る" /></a></td>
+							type="reset" class="piyo" /> </td>
 					</tr>
 
 				</table>
